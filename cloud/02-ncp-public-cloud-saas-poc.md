@@ -15,6 +15,12 @@
    (Redis/Elasticsearch/Kafka) 연동, 네트워크·로드밸런서·SSL/TLS 구성을 담당
 2) 애플리케이션 배포와 DB 마이그레이션은 협업 동료가 별도로 담당
 
+### 다. 구성도
+
+![NCP 공공클라우드 SaaS PoC 구성도](images/02-ncp-saas-poc-architecture.svg)
+
+- 원본 구성도의 실제 사설 IP 대역·상세 포트 번호는 마스킹을 위해 이 문서에서 일반화하여 표기
+
 ## 2. 기대효과
 
 ### 가. 관리형 서비스 이식 가능성 실전 검증

@@ -8,18 +8,21 @@
 
 ### 핵심 성과
 
-- **GitLab PAT 기반 인증 재설계** — 토큰 유출 시 영향범위를 전체 750개 프로젝트에서 1개
-  프로젝트로 축소 ([자세히](cicd/01-gitlab-pat-redesign.md))
 - **ArgoCD-GitLab 연쇄 장애 대응** — 일일 장애 발생 고객사 75-80% 감소
   ([자세히](cicd/02-argocd-gitlab-cascading-failure.md))
+- **CSAP 인증심사 대응 및 유지보수** — kube-bench 기반 141개 항목 전수 진단, 즉시조치 30건 +
+  Kyverno 기반 중기조치 27건으로 CSAP 인증 요건 충족, 이후 유지·갱신 심사에 필요한 반복 증적을
+  자동 생성하는 체계까지 구축해 현재도 운영 중
+  ([진단·조치 자세히](security/01-k8s-cis-benchmark-remediation.md) ·
+  [유지보수 자동화 자세히](security/02-csap-maintenance-automation.md))
 - **Kubernetes 클러스터 구성 자동화 4-Tier 리팩토링** — 설치 소요시간 약 20% 단축, 전체 신규
   구축 표준으로 적용 ([자세히](iaas/01-k8s-install-automation-refactor.md))
+- **Prometheus + Grafana 커스텀 모니터링 대시보드 구축** — 별도 모니터링 서버 없이 기존 자산만으로
+  K8s+서버 통합 관측성 체계를 구축해 전체 배포 표준으로 반영
+  ([자세히](monitoring/01-grafana-dashboard-custom-build.md))
 - **대규모 고객사 솔루션 신규 구축 프로젝트 리딩** — 6개 이상 클러스터 규모의 구축 프로젝트를
   설치계획부터 오픈 지원까지 전 주기 단독 리딩, 정상 서비스 오픈으로 완료
   ([자세히](project/01-solution-installation-project-lead.md))
-- **CSAP 인증 대응 Kubernetes 보안 취약점 전수 진단 및 조치** — kube-bench 기반 141개 항목
-  전수 진단, 즉시조치 30건 + Kyverno 기반 중기조치 27건 완료로 CSAP 인증 요건 충족
-  ([자세히](security/01-k8s-cis-benchmark-remediation.md))
 
 ### 기술적 문제 해결 사례
 
@@ -32,6 +35,9 @@
 - **OS/프로세스 계층** — TCP probe가 MySQL 핸드셰이크 없이 연결을 열고 닫아 발생하던 Aborted
   connect 로그 폭증의 원인을 규명하고, exec 기반 probe로 전환해 근본적으로 해결
   ([자세히](k8s-ops/06-mariadb-healthcheck-probe-tcp-abort.md))
+- **인증/보안 계층** — 전체 고객사 프로젝트가 root 계정의 공용 Access Token을 공유하던 구조를
+  분석해, 레거시 GitLab 버전 제약까지 고려한 프로젝트/용도별 분리 발급 체계로 재설계
+  ([자세히](cicd/01-gitlab-pat-redesign.md))
 
 ## 목차
 
@@ -43,6 +49,11 @@
 - [kube-proxy 모드 IPVS Deprecated 대응 — IPVS에서 iptables로 재전환](k8s-ops/04-kubeproxy-mode-ipvs-to-iptables.md)
 - [Go 애플리케이션 재기동 시 좀비 프로세스/CPU 부하 대응](k8s-ops/05-go-zombie-process-graceful-shutdown.md)
 - [MariaDB Pod Healthcheck Probe 개선 — TCP → Exec 전환](k8s-ops/06-mariadb-healthcheck-probe-tcp-abort.md)
+
+### [security/](security/) - 보안, 컴플라이언스
+
+- [CSAP 인증 대응 Kubernetes 보안 취약점 전수 진단 및 조치](security/01-k8s-cis-benchmark-remediation.md)
+- [CSAP 인증 유지·갱신 대응 유지보수 자동화](security/02-csap-maintenance-automation.md)
 
 ### [cicd/](cicd/) - CI/CD, GitOps
 
@@ -70,8 +81,3 @@
 ### [project/](project/) - 프로젝트 리딩, PM
 
 - [대규모 고객사 솔루션 신규 구축 프로젝트 리딩](project/01-solution-installation-project-lead.md)
-
-### [security/](security/) - 보안, 컴플라이언스
-
-- [CSAP 인증 대응 Kubernetes 보안 취약점 전수 진단 및 조치](security/01-k8s-cis-benchmark-remediation.md)
-- [CSAP 인증 유지·갱신 대응 유지보수 자동화](security/02-csap-maintenance-automation.md)

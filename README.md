@@ -17,6 +17,9 @@
 - **대규모 고객사 솔루션 신규 구축 프로젝트 리딩** — 6개 이상 클러스터 규모의 구축 프로젝트를
   설치계획부터 오픈 지원까지 전 주기 단독 리딩, 정상 서비스 오픈으로 완료
   ([자세히](project/01-solution-installation-project-lead.md))
+- **CSAP 인증 대응 Kubernetes 보안 취약점 전수 진단 및 조치** — kube-bench 기반 141개 항목
+  전수 진단, 즉시조치 30건 + Kyverno 기반 중기조치 27건 완료로 CSAP 인증 요건 충족
+  ([자세히](security/01-k8s-cis-benchmark-remediation.md))
 
 ### 기술적 문제 해결 사례
 
@@ -67,3 +70,8 @@
 ### [project/](project/) - 프로젝트 리딩, PM
 
 - [대규모 고객사 솔루션 신규 구축 프로젝트 리딩](project/01-solution-installation-project-lead.md)
+
+### [security/](security/) - 보안, 컴플라이언스
+
+- [CSAP 인증 대응 Kubernetes 보안 취약점 전수 진단 및 조치](security/01-k8s-cis-benchmark-remediation.md)
+- [CSAP 인증 유지·갱신 대응 유지보수 자동화](security/02-csap-maintenance-automation.md)

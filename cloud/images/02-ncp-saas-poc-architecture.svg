@@ -19,7 +19,7 @@
   <text x="255" y="72" font-size="11" font-weight="bold" fill="#7f1d1d">Public Zone — ACG</text>
   <text x="255" y="98" font-size="12" fill="#7f1d1d">Anti-DDoS · IDS · IPS · WAF · Security Monitoring</text>
 
-  <line x1="415" y1="125" x2="415" y2="160" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="415" y1="125" x2="415" y2="195" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
 
   <!-- NCP boundary -->
   <rect x="120" y="160" width="1050" height="700" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
@@ -31,33 +31,34 @@
   <text x="415" y="234" text-anchor="middle" font-size="10.5" fill="#9a3412">(Ingress) - Public Zone</text>
   <text x="415" y="248" text-anchor="middle" font-size="9.5" fill="#9a3412">Network Proxy · 표준 HTTP/HTTPS 포트</text>
 
-  <line x1="415" y1="255" x2="415" y2="300" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
-
   <!-- NKS -->
   <rect x="560" y="290" width="260" height="90" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
   <text x="690" y="320" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a8a">NKS</text>
   <text x="690" y="338" text-anchor="middle" font-size="11" fill="#1e40af">(관리형 Kubernetes, Auto Scaling)</text>
   <text x="690" y="356" text-anchor="middle" font-size="10" fill="#1e40af">Mqtt · Nginx · Auth · Daemon · Mail · webapps</text>
 
+  <!-- Public LB -> NKS (elbow, avoids overlap with mqtt LB line) -->
+  <path d="M415,255 L415,345 L560,345" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+
   <!-- LB private zone (mqtt) -->
   <rect x="130" y="290" width="190" height="70" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
   <text x="225" y="313" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7c2d12">Load Balancer (mqtt)</text>
   <text x="225" y="329" text-anchor="middle" font-size="10" fill="#9a3412">Network Proxy</text>
   <text x="225" y="344" text-anchor="middle" font-size="9.5" fill="#9a3412">최상단 재배치 · 서버 직접 타겟</text>
-  <line x1="320" y1="325" x2="560" y2="325" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="320" y1="315" x2="560" y2="315" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
 
   <!-- nginx servers -->
   <rect x="900" y="230" width="220" height="70" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
   <text x="1010" y="253" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#14532d">nginx Servers</text>
   <text x="1010" y="269" text-anchor="middle" font-size="10" fill="#166534">SSL 인증서 처리 및 도메인 호스팅</text>
   <text x="1010" y="284" text-anchor="middle" font-size="9.5" fill="#166534">(LB당 인증서 개수 제한 우회용 VM)</text>
-  <line x1="900" y1="265" x2="820" y2="320" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M900,265 L860,265 L860,300 L820,300" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
 
   <!-- Ingress private LB (NodePort) -->
   <rect x="900" y="330" width="220" height="60" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
   <text x="1010" y="353" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7c2d12">Load Balancer (Ingress)</text>
   <text x="1010" y="369" text-anchor="middle" font-size="10" fill="#9a3412">Private Zone · NodePort 대역</text>
-  <line x1="900" y1="360" x2="820" y2="340" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="900" y1="360" x2="820" y2="360" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
 
   <!-- App layer: ERP / Mail -->
   <rect x="620" y="410" width="140" height="55" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.3"/>
@@ -69,9 +70,7 @@
   <rect x="900" y="410" width="220" height="60" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.3"/>
   <text x="1010" y="433" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">NEOS · NAS · Block Storage</text>
   <text x="1010" y="449" text-anchor="middle" font-size="9.5" fill="#475569">파일/블록 스토리지</text>
-  <line x1="900" y1="440" x2="820" y2="335" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
-
-  <line x1="690" y1="465" x2="690" y2="500" stroke="#334155" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M900,440 L850,440 L850,310 L820,310" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
 
   <!-- Middleware zone: Kafka -->
   <rect x="140" y="500" width="250" height="110" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -89,32 +88,36 @@
   <rect x="425" y="570" width="220" height="30" rx="5" fill="#faf5ff" stroke="#8b5cf6" stroke-width="1.2"/>
   <text x="535" y="590" text-anchor="middle" font-size="10.5" fill="#4c1d95">Search Engine Data Node (REST 포트)</text>
 
-  <line x1="265" y1="500" x2="400" y2="380" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
-  <line x1="535" y1="500" x2="600" y2="380" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <!-- Kafka/Search zones -> ERP·Mail (webapps가 연동하는 관계로 재구성, NKS 빈 공간으로 향하던 화살표 수정) -->
+  <path d="M265,500 L265,440 L620,440" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <path d="M535,500 L535,460 L620,460" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
 
-  <!-- Managed services row: Cloud DB -->
-  <rect x="140" y="640" width="520" height="110" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <text x="155" y="658" font-size="10.5" font-weight="bold" fill="#164e63">Private Zone — ACG · NCP 관리형 서비스(Cloud DB)</text>
-  <rect x="155" y="668" width="240" height="60" rx="6" fill="#cffafe" stroke="#06b6d4" stroke-width="1.3"/>
-  <text x="275" y="692" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#164e63">Mysql</text>
-  <text x="275" y="710" text-anchor="middle" font-size="9.5" fill="#155e75">관리형 전환 완료</text>
-  <rect x="405" y="668" width="240" height="60" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.3"/>
-  <text x="525" y="692" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7f1d1d">Redis</text>
-  <text x="525" y="710" text-anchor="middle" font-size="9.5" fill="#991b1b">인증 방식 제약 → 관리형 미채택, NKS Pod로 자체 구축 유지</text>
+  <!-- Managed services row: Kafka storage (Kafka Manager 바로 아래, 수직 정렬) -->
+  <rect x="140" y="640" width="250" height="80" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="155" y="658" font-size="10" font-weight="bold" fill="#164e63">NCP 관리형 서비스</text>
+  <rect x="155" y="668" width="220" height="42" rx="6" fill="#cffafe" stroke="#06b6d4" stroke-width="1.3"/>
+  <text x="265" y="693" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#164e63">Kafka (관리형 전환 완료)</text>
+  <line x1="265" y1="640" x2="265" y2="610" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
 
-  <!-- Managed services row: Storage -->
+  <!-- Elastic Search storage (Search Engine Manager 바로 아래, 수직 정렬) -->
+  <rect x="410" y="640" width="250" height="80" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="425" y="658" font-size="10" font-weight="bold" fill="#164e63">NCP 관리형 서비스</text>
+  <rect x="425" y="668" width="220" height="42" rx="6" fill="#cffafe" stroke="#06b6d4" stroke-width="1.3"/>
+  <text x="535" y="693" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#164e63">Elastic Search (관리형 전환 완료)</text>
+  <line x1="535" y1="640" x2="535" y2="610" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+
+  <!-- Cloud DB: Mysql / Redis, ERP·Mail 아래쪽에 배치해 대각선 교차 없이 연결 -->
   <rect x="680" y="640" width="440" height="110" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <text x="695" y="658" font-size="10.5" font-weight="bold" fill="#164e63">Private Zone — ACG · NCP 관리형 서비스(Storage)</text>
+  <text x="695" y="658" font-size="10.5" font-weight="bold" fill="#164e63">Private Zone — ACG · NCP 관리형 서비스(Cloud DB)</text>
   <rect x="695" y="668" width="195" height="60" rx="6" fill="#cffafe" stroke="#06b6d4" stroke-width="1.3"/>
-  <text x="792" y="692" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#164e63">Elastic Search</text>
+  <text x="792" y="692" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#164e63">Mysql</text>
   <text x="792" y="710" text-anchor="middle" font-size="9.5" fill="#155e75">관리형 전환 완료</text>
-  <rect x="905" y="668" width="195" height="60" rx="6" fill="#cffafe" stroke="#06b6d4" stroke-width="1.3"/>
-  <text x="1002" y="692" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#164e63">Kafka</text>
-  <text x="1002" y="710" text-anchor="middle" font-size="9.5" fill="#155e75">관리형 전환 완료</text>
+  <rect x="905" y="668" width="195" height="60" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.3"/>
+  <text x="1002" y="692" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7f1d1d">Redis</text>
+  <text x="1002" y="705" text-anchor="middle" font-size="8.5" fill="#991b1b">인증 방식 제약 → 관리형 미채택</text>
+  <text x="1002" y="717" text-anchor="middle" font-size="8.5" fill="#991b1b">NKS Pod로 자체 구축 유지</text>
 
-  <line x1="275" y1="640" x2="265" y2="610" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
-  <line x1="792" y1="640" x2="535" y2="610" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
-  <line x1="1002" y1="640" x2="265" y2="610" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <path d="M900,640 L900,540 L760,540 L760,465" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
 
   <!-- Legend -->
   <text x="140" y="795" font-size="10.5" fill="#64748b">점선 경계 = ACG(접근 제어 그룹) · 실선 화살표 = 트래픽 흐름 · 점선 화살표 = 서비스 연동</text>

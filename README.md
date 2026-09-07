@@ -54,6 +54,7 @@
 - [MariaDB Pod Healthcheck Probe 개선 — TCP → Exec 전환](k8s-ops/06-mariadb-healthcheck-probe-tcp-abort.md)
 - [kube-apiserver HA 오설정으로 인한 kubeadm 업그레이드 실패 대응](k8s-ops/07-kube-apiserver-ha-advertise-address-misconfig.md)
 - [Traefik 전역 TLS 정책과 레거시 클라이언트 호환성 충돌 대응](k8s-ops/08-traefik-tls-minversion-scoped-override.md)
+- [멀티 NIC 환경에서 Calico BGP Node IP 오선택 장애 대응](k8s-ops/09-calico-multi-nic-bgp-node-ip-misdetection.md)
 
 ### [security/](security/) - 보안, 컴플라이언스
 

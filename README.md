@@ -72,6 +72,7 @@
 
 - [컨테이너 레지스트리 CDN 매니페스트 캐싱 이슈 대응](ops/02-registry-cdn-manifest-cache-bypass.md)
 - [Loki 로그 추출/백업 자동화 파이프라인 구축](ops/03-loki-log-backup-automation.md)
+- [ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현](ops/04-config-reloader-review.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

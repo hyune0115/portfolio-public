@@ -16,7 +16,7 @@
   ([진단·조치 자세히](security/01-k8s-cis-benchmark-remediation.md) ·
   [유지보수 자동화 자세히](security/02-csap-maintenance-automation.md))
 - **Kubernetes 클러스터 구성 자동화 4-Tier 리팩토링** — 설치 소요시간 약 20% 단축, 전체 신규
-  구축 표준으로 적용 ([자세히](iaas/01-k8s-install-automation-refactor.md))
+  구축 표준으로 적용 ([자세히](iac/01-k8s-install-automation-refactor.md))
 - **Prometheus + Grafana 커스텀 모니터링 대시보드 구축** — 별도 모니터링 서버 없이 기존 자산만으로
   K8s+서버 통합 관측성 체계를 구축해 전체 배포 표준으로 반영
   ([자세히](monitoring/01-grafana-dashboard-custom-build.md))
@@ -64,9 +64,9 @@
 - [GitLab Project Access Token 기반 인증 재설계](cicd/01-gitlab-pat-redesign.md)
 - [ArgoCD-GitLab 연쇄 장애 대응](cicd/02-argocd-gitlab-cascading-failure.md)
 
-### [iaas/](iaas/) - IaaS, 구축 자동화
+### [iac/](iac/) - IaC, 구축 자동화
 
-- [Kubernetes 클러스터 구성 자동화 4-Tier 리팩토링](iaas/01-k8s-install-automation-refactor.md)
+- [Kubernetes 클러스터 구성 자동화 4-Tier 리팩토링](iac/01-k8s-install-automation-refactor.md)
 
 ### [ops/](ops/) - 운영, 장애대응
 

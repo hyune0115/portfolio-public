@@ -1,7 +1,5 @@
 # ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현
 
-TA Unit
-
 ## 1. 배경
 
 ### 가. 문제

@@ -14,7 +14,7 @@
   Kyverno 기반 중기조치 27건으로 CSAP 인증 요건 충족, 이후 유지·갱신 심사에 필요한 반복 증적을
   자동 생성하는 체계까지 구축해 현재도 운영 중
   ([진단·조치 자세히](security/01-k8s-cis-benchmark-remediation.md) ·
-  [유지보수 자동화 자세히](security/02-csap-maintenance-automation.md))
+  [유지보수 자동화 자세히](ops/05-csap-maintenance-automation.md))
 - **Kubernetes 클러스터 구성 자동화 4-Tier 리팩토링** — 설치 소요시간 약 20% 단축, 전체 신규
   구축 표준으로 적용 ([자세히](iac/01-k8s-install-automation-refactor.md))
 - **Prometheus + Grafana 커스텀 모니터링 대시보드 구축** — 별도 모니터링 서버 없이 기존 자산만으로
@@ -57,7 +57,6 @@
 ### [security/](security/) - 보안, 컴플라이언스
 
 - [CSAP 인증 대응 Kubernetes 보안 취약점 전수 진단 및 조치](security/01-k8s-cis-benchmark-remediation.md)
-- [CSAP 인증 유지·갱신 대응 유지보수 자동화](security/02-csap-maintenance-automation.md)
 
 ### [cicd/](cicd/) - CI/CD, GitOps
 
@@ -73,6 +72,7 @@
 - [컨테이너 레지스트리 CDN 매니페스트 캐싱 이슈 대응](ops/02-registry-cdn-manifest-cache-bypass.md)
 - [Loki 로그 추출/백업 자동화 파이프라인 구축](ops/03-loki-log-backup-automation.md)
 - [ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현](ops/04-config-reloader-review.md)
+- [CSAP 인증 유지·갱신 대응 유지보수 자동화](ops/05-csap-maintenance-automation.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

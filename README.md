@@ -70,7 +70,6 @@
 
 ### [ops/](ops/) - 운영, 장애대응
 
-- [정전/유지보수 대응 서비스 중지·재기동 자동화](ops/01-service-maintenance-automation.md)
 - [컨테이너 레지스트리 CDN 매니페스트 캐싱 이슈 대응](ops/02-registry-cdn-manifest-cache-bypass.md)
 - [Loki 로그 추출/백업 자동화 파이프라인 구축](ops/03-loki-log-backup-automation.md)
 

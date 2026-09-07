@@ -1,7 +1,5 @@
 # 멀티 NIC 환경에서 Calico BGP Node IP 오선택 장애 대응
 
-TA Unit
-
 ## 1. 배경
 
 ### 가. 증상

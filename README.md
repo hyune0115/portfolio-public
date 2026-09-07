@@ -53,6 +53,7 @@
 - [Go 애플리케이션 재기동 시 좀비 프로세스/CPU 부하 대응](k8s-ops/05-go-zombie-process-graceful-shutdown.md)
 - [MariaDB Pod Healthcheck Probe 개선 — TCP → Exec 전환](k8s-ops/06-mariadb-healthcheck-probe-tcp-abort.md)
 - [kube-apiserver HA 오설정으로 인한 kubeadm 업그레이드 실패 대응](k8s-ops/07-kube-apiserver-ha-advertise-address-misconfig.md)
+- [Traefik 전역 TLS 정책과 레거시 클라이언트 호환성 충돌 대응](k8s-ops/08-traefik-tls-minversion-scoped-override.md)
 
 ### [security/](security/) - 보안, 컴플라이언스
 

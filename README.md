@@ -38,6 +38,9 @@
 - **인증/보안 계층** — 전체 고객사 프로젝트가 root 계정의 공용 Access Token을 공유하던 구조를
   분석해, 레거시 GitLab 버전 제약까지 고려한 프로젝트/용도별 분리 발급 체계로 재설계
   ([자세히](cicd/01-gitlab-pat-redesign.md))
+- **컨트롤플레인/HA 계층** — kube-apiserver `--advertise-address` 오설정이 엔드포인트·kubelet
+  probe·kubeconfig 5곳에 파생되어 발생한 상관 장애를 kubeadm 소스 코드 수준까지 추적해 규명하고,
+  HA 클러스터 업그레이드를 완주시킴 ([자세히](k8s-ops/07-kube-apiserver-ha-advertise-address-misconfig.md))
 
 ## 목차
 
@@ -49,6 +52,7 @@
 - [kube-proxy 모드 IPVS Deprecated 대응 — IPVS에서 iptables로 재전환](k8s-ops/04-kubeproxy-mode-ipvs-to-iptables.md)
 - [Go 애플리케이션 재기동 시 좀비 프로세스/CPU 부하 대응](k8s-ops/05-go-zombie-process-graceful-shutdown.md)
 - [MariaDB Pod Healthcheck Probe 개선 — TCP → Exec 전환](k8s-ops/06-mariadb-healthcheck-probe-tcp-abort.md)
+- [kube-apiserver HA 오설정으로 인한 kubeadm 업그레이드 실패 대응](k8s-ops/07-kube-apiserver-ha-advertise-address-misconfig.md)
 
 ### [security/](security/) - 보안, 컴플라이언스
 

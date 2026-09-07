@@ -4,9 +4,8 @@
 
 ### 가. 증상
 
-1) 3대 컨트롤플레인 HA 클러스터에서 kubeadm 패치 버전 업그레이드 도중 업그레이드가 완주되지
-   않음
-2) 업그레이드 창 동안 3대 컨트롤플레인의 kubelet이 동시에 apiserver probe 실패를 기록 —
+1) 3대 컨트롤플레인 HA 클러스터에서 kubeadm 패치 버전 업그레이드 도중 업그레이드 실패
+2) 업그레이드 동안 ha-proxy에서 apiserver probe 실패 조회 —
    원인 진단부터 조치까지 단독 수행
 
 ### 나. 원인
@@ -15,7 +14,7 @@
    LB VIP로 동일하게 오설정
 2) 이 값이 엔드포인트 등록, kubelet probe host, controller-manager/scheduler kubeconfig까지
    총 5곳에 그대로 파생되어, 노드별로 독립이어야 할 상태 판정이 LB라는 단일 지점에 묶임
-3) 업그레이드 중 LB의 backend health-check가 일시적으로 에러를 내자 3대 kubelet의 probe가
+3) 업그레이드 중 LB의 backend health-check가 일시적으로 에러 발생하여 3대 kubelet의 probe가
    동시에 실패 — 롤링 업그레이드가 "이 노드만의 상태"를 판별하지 못해 완주 실패
 
 ## 2. 기대효과

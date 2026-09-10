@@ -26,30 +26,38 @@
 
 ### 기술적 문제 해결 사례
 
-- **k8s-ops — 네트워크** — 고객사 NAC 장비의 주기적 ARP 갱신과 Ingress의 노드별 개별 MAC 광고가
+**k8s-ops**
+
+- **네트워크** — 고객사 NAC 장비의 주기적 ARP 갱신과 Ingress의 노드별 개별 MAC 광고가
   충돌해 발생한 서비스 접속 장애를, 패킷 덤프 기반으로 여러 원인 후보를 배제해가며 근본 원인을
   특정하고 MetalLB 도입으로 해결 ([자세히](k8s-ops/01-nac-arp-mac-floating-conflict.md))
-- **k8s-ops — 컨트롤플레인/HA** — kube-apiserver `--advertise-address` 오설정이 엔드포인트·kubelet
+- **컨트롤플레인/HA** — kube-apiserver `--advertise-address` 오설정이 엔드포인트·kubelet
   probe·kubeconfig 5곳에 파생되어 발생한 상관 장애를 kubeadm 소스 코드 수준까지 추적해 규명하고,
   HA 클러스터 업그레이드를 완주시킴 ([자세히](k8s-ops/07-kube-apiserver-ha-advertise-address-misconfig.md))
-- **k8s-ops — OS/프로세스** — TCP probe가 MySQL 핸드셰이크 없이 연결을 열고 닫아 발생하던 Aborted
+- **OS/프로세스** — TCP probe가 MySQL 핸드셰이크 없이 연결을 열고 닫아 발생하던 Aborted
   connect 로그 폭증의 원인을 규명하고, exec 기반 probe로 전환해 근본적으로 해결
   ([자세히](k8s-ops/06-mariadb-healthcheck-probe-tcp-abort.md))
-- **k8s-ops — 런타임/커널** — RHEL9 전환(cgroup v1→v2) 이후 JVM이 컨테이너 limit이 아닌 호스트
+- **런타임/커널** — RHEL9 전환(cgroup v1→v2) 이후 JVM이 컨테이너 limit이 아닌 호스트
   전체 메모리 기준으로 힙을 계산해 발생한 OOM을, 커널 파라미터만 바꿔 재현하는 교차 검증으로
   원인을 cgroup 버전에 정확히 특정하고 JDK 업그레이드로 근본 해결
   ([자세히](k8s-ops/03-redhat9-cgroupv2-jdk-oom.md))
-- **k8s-ops — 네트워크** — 멀티 NIC 환경에서 Calico가 "먼저 발견된 인터페이스"로 BGP Node IP를
+- **네트워크** — 멀티 NIC 환경에서 Calico가 "먼저 발견된 인터페이스"로 BGP Node IP를
   암묵적으로 선택하다 재부팅마다 통신이 끊기던 구조적 결함을, 명시적 대역 지정 방식으로 전환해
   재발 가능성 자체를 제거 ([자세히](k8s-ops/09-calico-multi-nic-bgp-node-ip-misdetection.md))
-- **cicd — 인증/보안** — 전체 고객사 프로젝트가 root 계정의 공용 Access Token을 공유하던 구조를
+
+**cicd**
+
+- **인증/보안** — 전체 고객사 프로젝트가 root 계정의 공용 Access Token을 공유하던 구조를
   분석해, 레거시 GitLab 버전 제약까지 고려한 프로젝트/용도별 분리 발급 체계로 재설계
   ([자세히](cicd/01-gitlab-pat-redesign.md))
-- **ops — 스토리지/컨테이너 런타임** — OpenEBS NDM이 백업 솔루션의 가상 디바이스 메타데이터를
+
+**ops**
+
+- **스토리지/컨테이너 런타임** — OpenEBS NDM이 백업 솔루션의 가상 디바이스 메타데이터를
   가져오지 못해 스캔이 행(hang)에 걸리며 메모리가 누적되는 근본 원인을 로그 분석과 공식 문서로
   규명하고, 설정 변경만으로 다운타임 없이 해결
   ([자세히](ops/07-openebs-ndm-memory-leak.md))
-- **ops — 네트워크/OS** — 고객사가 커널 레벨에서 비활성화한 IPv6와 일부 애플리케이션의 IPv6 소켓
+- **네트워크/OS** — 고객사가 커널 레벨에서 비활성화한 IPv6와 일부 애플리케이션의 IPv6 소켓
   바인딩이 충돌해 발생한 기동 오류를 규명하고, IPv4 단일스택으로 통일해 재발 자체를 차단
   ([자세히](ops/08-ipv6-disable-app-bind-failure.md))
 

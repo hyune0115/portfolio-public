@@ -76,6 +76,7 @@
 - [ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현](ops/04-config-reloader-review.md)
 - [CSAP 인증 유지·갱신 대응 유지보수 자동화](ops/05-csap-maintenance-automation.md)
 - [Redis RDB Replica 기반 Diskless 원격 백업 구현](ops/06-redis-rdb-remote-backup.md)
+- [OpenEBS NDM 메모리 누수로 인한 노드 OOM 대응](ops/07-openebs-ndm-memory-leak.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

@@ -94,6 +94,7 @@
 
 - [Prometheus Stack + Grafana 커스텀 모니터링 대시보드 구축](monitoring/01-grafana-dashboard-custom-build.md)
 - [Loki 중앙집중형 로깅 S3 오브젝트 스토리지 전환 PoC](monitoring/02-loki-s3-storage-poc.md)
+- [로그 수집 에이전트 Promtail → Alloy 마이그레이션](monitoring/03-promtail-to-alloy-migration.md)
 
 ### [cloud/](cloud/) - 퍼블릭 클라우드, 아키텍처 설계
 

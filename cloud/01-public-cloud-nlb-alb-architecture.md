@@ -61,17 +61,17 @@
 - 다만 이 구성은 NLB가 ALB를 타겟 그룹으로 직접 등록하는 AWS 전용 기능에 기반하므로, AWS
   환경에서만 적용 가능
 
-### 다. 옵션 3 — MetalLB + Traefik + 인바운드 프록시 구성 (AWS 외)
+### 다. 옵션 3 — MetalLB + Traefik + 인바운드 프록시 구성 (AWS 외, NLB 미구성)
 
-NLB가 ALB를 타겟으로 잡는 기능과 MetalLB의 floating VIP를 타겟으로 잡는 기능 모두 AWS 외
-클라우드의 NLB 타겟 설정 UI에서는 지원되지 않아(MSP 정책이 아닌 플랫폼 자체 제약), nginx
-인바운드 프록시가 NLB와 MetalLB VIP 사이를 단순 중계하고, 실제 host 기준 라우팅은 온프레미스와
-동일하게 Traefik이 담당하도록 구성했습니다.
+MetalLB의 floating VIP를 타겟으로 잡는 기능이 AWS 외 클라우드의 NLB 타겟 설정 UI에서는
+지원되지 않아(MSP 정책이 아닌 플랫폼 자체 제약), 이 옵션은 NLB 자체를 구성하지 않고 nginx
+인바운드 프록시가 Public IP를 직접 수신해 MetalLB VIP로 단순 중계하며, 실제 host 기준
+라우팅은 온프레미스와 동일하게 Traefik이 담당하도록 구성했습니다.
 
 ![MetalLB + Traefik + 인바운드 프록시 구성](./images/03-inbound-proxy.svg)
 
-- client IP 보존: NLB는 Proxy Protocol, Traefik은 X-Forwarded-For로 각각 보존 (nginx는 단순
-  중계만 하므로 별도 헤더 처리 없음)
+- client IP 보존: nginx는 단순 중계만 하므로 원본 헤더를 그대로 전달, Traefik이 X-Forwarded-For로
+  최종 보존
 - nginx: host 기준 라우팅이 필요한 HTTP 포트(웹/화상회의)와 그 외 TCP 기반 포트 모두 동일하게
   MetalLB VIP로 전달만 하고, 실제 분기는 뒤단 Traefik이 담당
 - Traefik: SSL 인증서 등록 및 SSL Offloading, HTTP → HTTPS 리다이렉트, host-based routing 설정

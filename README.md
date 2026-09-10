@@ -75,10 +75,12 @@
 - [Loki 로그 추출/백업 자동화 파이프라인 구축](ops/03-loki-log-backup-automation.md)
 - [ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현](ops/04-config-reloader-review.md)
 - [CSAP 인증 유지·갱신 대응 유지보수 자동화](ops/05-csap-maintenance-automation.md)
+- [Redis RDB Replica 기반 Diskless 원격 백업 구현](ops/06-redis-rdb-remote-backup.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 
 - [Prometheus Stack + Grafana 커스텀 모니터링 대시보드 구축](monitoring/01-grafana-dashboard-custom-build.md)
+- [Loki 중앙집중형 로깅 S3 오브젝트 스토리지 전환 PoC](monitoring/02-loki-s3-storage-poc.md)
 
 ### [cloud/](cloud/) - 퍼블릭 클라우드, 아키텍처 설계
 

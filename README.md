@@ -55,6 +55,7 @@
 - [kube-apiserver HA 오설정으로 인한 kubeadm 업그레이드 실패 대응](k8s-ops/07-kube-apiserver-ha-advertise-address-misconfig.md)
 - [Traefik 전역 TLS 정책과 레거시 클라이언트 호환성 충돌 대응](k8s-ops/08-traefik-tls-minversion-scoped-override.md)
 - [멀티 NIC 환경에서 Calico BGP Node IP 오선택 장애 대응](k8s-ops/09-calico-multi-nic-bgp-node-ip-misdetection.md)
+- [ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현](k8s-ops/10-config-reloader-review.md)
 
 ### [security/](security/) - 보안, 컴플라이언스
 
@@ -73,7 +74,6 @@
 
 - [컨테이너 레지스트리 CDN 매니페스트 캐싱 이슈 대응](ops/02-registry-cdn-manifest-cache-bypass.md)
 - [Loki 로그 추출/백업 자동화 파이프라인 구축](ops/03-loki-log-backup-automation.md)
-- [ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현](ops/04-config-reloader-review.md)
 - [CSAP 인증 유지·갱신 대응 유지보수 자동화](ops/05-csap-maintenance-automation.md)
 - [Redis RDB Replica 기반 Diskless 원격 백업 구현](ops/06-redis-rdb-remote-backup.md)
 - [OpenEBS NDM 메모리 누수로 인한 노드 OOM 대응](ops/07-openebs-ndm-memory-leak.md)

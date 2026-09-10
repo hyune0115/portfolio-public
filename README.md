@@ -17,12 +17,14 @@
   [유지보수 자동화 자세히](ops/05-csap-maintenance-automation.md))
 - **Kubernetes 클러스터 구성 자동화 4-Tier 리팩토링** — 설치 소요시간 약 20% 단축, 전체 신규
   구축 표준으로 적용 ([자세히](iac/01-k8s-install-automation-refactor.md))
-- **Prometheus + Grafana 커스텀 모니터링 대시보드 구축** — 별도 모니터링 서버 없이 기존 자산만으로
-  K8s+서버 통합 관측성 체계를 구축해 전체 배포 표준으로 반영
-  ([자세히](monitoring/01-grafana-dashboard-custom-build.md))
 - **대규모 고객사 솔루션 신규 구축 프로젝트 리딩** — 6개 이상 클러스터 규모의 구축 프로젝트를
   설치계획부터 오픈 지원까지 전 주기 단독 리딩, 정상 서비스 오픈으로 완료
   ([자세히](project/01-solution-installation-project-lead.md))
+- **Kubernetes 클러스터 백업/DR PoC (오픈소스·상용 이중 검증)** — Velero(오픈소스)와 Veeam
+  Kasten(상용) 양쪽을 모두 PoC로 검증해 클러스터 전체 백업 2-3분, DR 복구 3-4분의 정량 성능을
+  확보하고, hostPath 볼륨 미지원이 도구 한계가 아닌 스토리지 구조적 제약임을 교차 검증으로 규명
+  ([Velero 자세히](ops/09-velero-cluster-backup-poc.md) ·
+  [Veeam Kasten 자세히](ops/10-veeam-kasten-backup-poc.md))
 
 ### 기술적 문제 해결 사례
 
@@ -61,6 +63,12 @@
   바인딩이 충돌해 발생한 기동 오류를 규명하고, IPv4 단일스택으로 통일해 재발 자체를 차단
   ([자세히](ops/08-ipv6-disable-app-bind-failure.md))
 
+**monitoring**
+
+- **관측성 구축** — 별도 모니터링 서버 없이 기존 자산(Prometheus-Grafana)만으로 K8s+서버 통합
+  관측성 체계를 클러스터→노드→네임스페이스 드릴다운 구조로 구축해 전체 배포 표준으로 반영
+  ([자세히](monitoring/01-grafana-dashboard-custom-build.md))
+
 ## 목차
 
 ### [k8s-ops/](k8s-ops/) - Kubernetes 인프라 운영, 장애대응
@@ -98,6 +106,7 @@
 - [OpenEBS NDM 메모리 누수로 인한 노드 OOM 대응](ops/07-openebs-ndm-memory-leak.md)
 - [커널 IPv6 비활성화로 인한 애플리케이션 기동 오류 대응](ops/08-ipv6-disable-app-bind-failure.md)
 - [Velero 기반 Kubernetes 클러스터 백업/마이그레이션 PoC](ops/09-velero-cluster-backup-poc.md)
+- [Veeam Kasten 기반 Kubernetes 클러스터 백업/DR PoC](ops/10-veeam-kasten-backup-poc.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

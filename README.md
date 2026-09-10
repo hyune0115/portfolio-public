@@ -97,6 +97,7 @@
 - [Redis RDB Replica 기반 Diskless 원격 백업 구현](ops/06-redis-rdb-remote-backup.md)
 - [OpenEBS NDM 메모리 누수로 인한 노드 OOM 대응](ops/07-openebs-ndm-memory-leak.md)
 - [커널 IPv6 비활성화로 인한 애플리케이션 기동 오류 대응](ops/08-ipv6-disable-app-bind-failure.md)
+- [Velero 기반 Kubernetes 클러스터 백업/마이그레이션 PoC](ops/09-velero-cluster-backup-poc.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

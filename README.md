@@ -77,6 +77,7 @@
 - [CSAP 인증 유지·갱신 대응 유지보수 자동화](ops/05-csap-maintenance-automation.md)
 - [Redis RDB Replica 기반 Diskless 원격 백업 구현](ops/06-redis-rdb-remote-backup.md)
 - [OpenEBS NDM 메모리 누수로 인한 노드 OOM 대응](ops/07-openebs-ndm-memory-leak.md)
+- [커널 IPv6 비활성화로 인한 애플리케이션 기동 오류 대응](ops/08-ipv6-disable-app-bind-failure.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

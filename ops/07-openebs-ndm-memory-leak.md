@@ -28,6 +28,8 @@
 
 ## 3. 구성도 (조치 흐름)
 
+![NDM 메모리 누수 원인 규명 흐름](images/07-ndm-memory-leak-flow.svg)
+
 ```
 STEP 1  Grafana 리소스 대시보드로 openebs-ndm Pod 메모리 급증 확인
   │

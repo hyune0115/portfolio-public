@@ -37,6 +37,8 @@
 
 ## 3. 변경 구성도 (Topology)
 
+![GitLab PAT 구조 Before/After](images/01-gitlab-pat-before-after.svg)
+
 ### 가. AS-IS
 
 ```

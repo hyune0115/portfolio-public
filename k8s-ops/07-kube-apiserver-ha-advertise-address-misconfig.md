@@ -41,6 +41,8 @@
 
 ## 3. 구성도 (원인 → 조치 흐름)
 
+![advertise-address 오설정 5곳 파생 구조](images/07-advertise-address-fanout.svg)
+
 ```
 STEP 1  kubeadm 패치 업그레이드 중 3대 kubelet 동시 probe 실패 확인
   │

@@ -1,4 +1,4 @@
-# Veeam Kasten 기반 Kubernetes 클러스터 백업/DR PoC
+# Veeam Kasten 기반 Kubernetes 클러스터 백업/복원 PoC
 
 ## 1. 배경
 

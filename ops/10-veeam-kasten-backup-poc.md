@@ -4,9 +4,10 @@
 
 ### 가. 목적
 
-1) 상용 백업 솔루션(Veeam Kasten)을 통한 그룹사 전체 서비스의 백업/복구 체계 검증
+1) 구축형(온프레미스) 고객사에는 기존에 파일시스템 백업 전용 상용 솔루션(Veritas)을 판매해 운영 중이었으나
+   Kubernetes 클러스터/PV 백업 공백이 있어, 이를 메울 상용 솔루션(Veeam Kasten)을 검토하기 위해 PoC 진행
 2) Active IDC 운영 클러스터에서 DR IDC 재해복구 클러스터로 DR(Disaster Recovery) 구현 가능 여부 검증
-3) 앞서 진행한 오픈소스([Velero PoC](09-velero-cluster-backup-poc.md)) 대비 상용 솔루션의 편의성·관리 기능·보안성 차이를 비교 검증
+3) 앞서 진행한 오픈소스([Velero PoC](09-velero-cluster-backup-poc.md), SaaS·그룹사 대상) 대비 상용 솔루션의 편의성·관리 기능·보안성 차이를 비교 검증
 
 ## 2. 기대효과
 
@@ -26,8 +27,11 @@
 | DR 구현 | 미검증 | Active↔DR 클러스터 간 복구 시나리오 검증 완료 |
 | 백업/복구 성능 | 미측정 | 클러스터 전체 백업 2-3분, DR 복구 3-4분(대형 컴포넌트 최대 약 12분) |
 | hostPath 볼륨 백업 | 미확인 | 오픈소스·상용 모두 불가 확인 — 스토리지 구조적 제약으로 결론 |
+| 구축형 고객사 백업 체계 | Veritas(파일시스템 백업 전용) | Kasten(K8s object·PV) + Veeam Backup & Replication(파일시스템) 조합 필요로 결론 |
 
 ## 3. 구성도 (검증 흐름)
+
+![오픈소스·상용 백업 PoC 교차 검증 흐름](images/09-10-backup-poc-cross-validation.svg)
 
 ```
 STEP 1  Active/DR 클러스터 환경 구성 (Veeam Kasten 설치)
@@ -53,6 +57,8 @@ STEP 6  PoC 결론 도출
 1) 오픈소스(Velero)와 상용(Veeam Kasten) 백업 솔루션을 모두 PoC로 검증해, 그룹사 백업 체계 도입 여부를 도구에 치우치지 않고 근거 있게 판단할 수 있는 자료 확보
 2) 클러스터 전체 백업 2-3분, DR 복구 3-4분(리소스가 큰 컴포넌트는 최대 약 12분) 등 정량적인 백업/복구 성능 지표를 확보
 3) hostPath 볼륨 미지원이 도구 한계가 아닌 스토리지 구조적 제약임을 오픈소스·상용 두 솔루션 교차 검증으로 명확히 규명
+4) 구축형 고객사 대상으로는 Kasten(K8s object·PV)과 Veeam Backup & Replication(파일시스템)을 함께 사용해야
+   전체 영역을 커버할 수 있다는 제품 조합 결론 도출 — 기존 파일시스템 백업 전용(Veritas) 체계의 공백을 규명
 
 ---
 

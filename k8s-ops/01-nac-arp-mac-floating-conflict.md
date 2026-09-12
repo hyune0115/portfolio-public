@@ -41,15 +41,7 @@
 
 ## 3. 조치 흐름
 
-```
-변경 전 — 모든 노드가 동일 서비스 IP의 MAC을 개별 광고
-Client ──ARP 갱신──▶ NAC ──(어느 노드? 매번 바뀜)──▶ Node A / B / C / D
-                                                        → 목적지가 계속 바뀌어 TCP 커넥션 단절
-
-변경 후 — 단일 노드만 서비스 IP의 MAC을 광고 (MetalLB)
-Client ──ARP 갱신──▶ NAC ──(항상 동일 노드)──▶ Node A (MetalLB Leader)
-                                                → 목적지 불변, TCP 커넥션 유지
-```
+![NAC ARP × MetalLB 토폴로지 변경 전/후](images/01-nac-arp-metallb-topology.svg)
 
 ```
 STEP 1  고객사 메신저 접속 불안정(간헐적 끊김/재접속) 보고

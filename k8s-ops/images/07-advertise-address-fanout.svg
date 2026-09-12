@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 430" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1150" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="24" font-size="13" font-weight="bold" fill="#111827">--advertise-address 오설정(LB VIP)이 파생되는 5곳</text>
+
+  <rect x="20" y="142" width="210" height="60" rx="7" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="125" y="167" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">--advertise-address</text>
+  <text x="125" y="184" text-anchor="middle" font-size="9.5" fill="#991b1b">3대 컨트롤플레인 모두 LB VIP로 오설정</text>
+
+  <!-- 5 fanout boxes, evenly spaced, clear of title and each other -->
+  <line x1="230" y1="150" x2="300" y2="58" stroke="#334155" stroke-width="1.3" marker-end="url(#a1)"/>
+  <rect x="300" y="42" width="240" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="420" y="63" text-anchor="middle" font-size="9.5" fill="#7c2d12">① kube-apiserver 플래그</text>
+
+  <line x1="230" y1="160" x2="300" y2="103" stroke="#334155" stroke-width="1.3" marker-end="url(#a1)"/>
+  <rect x="300" y="87" width="240" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="420" y="108" text-anchor="middle" font-size="9.5" fill="#7c2d12">② static pod annotation</text>
+
+  <line x1="230" y1="172" x2="300" y2="149" stroke="#334155" stroke-width="1.3" marker-end="url(#a1)"/>
+  <rect x="300" y="132" width="240" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="420" y="153" text-anchor="middle" font-size="9.5" fill="#7c2d12">③ liveness/readiness/startup probe host</text>
+
+  <line x1="230" y1="184" x2="300" y2="195" stroke="#334155" stroke-width="1.3" marker-end="url(#a1)"/>
+  <rect x="300" y="177" width="240" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="420" y="198" text-anchor="middle" font-size="9.5" fill="#7c2d12">④ controller-manager kubeconfig</text>
+
+  <line x1="230" y1="194" x2="300" y2="240" stroke="#334155" stroke-width="1.3" marker-end="url(#a1)"/>
+  <rect x="300" y="222" width="240" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="420" y="243" text-anchor="middle" font-size="9.5" fill="#7c2d12">⑤ scheduler kubeconfig</text>
+
+  <!-- convergence to trigger (fan-in from all 5, emphasized from ③ probe row) -->
+  <line x1="540" y1="59" x2="620" y2="145" stroke="#94a3b8" stroke-width="1" marker-end="url(#a1)"/>
+  <line x1="540" y1="104" x2="620" y2="145" stroke="#94a3b8" stroke-width="1" marker-end="url(#a1)"/>
+  <line x1="540" y1="149" x2="620" y2="149" stroke="#334155" stroke-width="1.8" marker-end="url(#a1)"/>
+  <line x1="540" y1="194" x2="620" y2="153" stroke="#94a3b8" stroke-width="1" marker-end="url(#a1)"/>
+  <line x1="540" y1="239" x2="620" y2="153" stroke="#94a3b8" stroke-width="1" marker-end="url(#a1)"/>
+
+  <rect x="620" y="100" width="240" height="90" rx="7" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="740" y="123" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f1d1d">3대 probe가 모두 VIP 감시</text>
+  <text x="740" y="140" text-anchor="middle" font-size="9.5" fill="#991b1b">"내 apiserver" 아닌 "LB 뒤 아무거나"</text>
+  <text x="740" y="156" text-anchor="middle" font-size="9.5" fill="#991b1b">HAProxy 헬스체크 순간 에러</text>
+  <text x="740" y="172" text-anchor="middle" font-size="9.5" fill="#991b1b">→ 3대 probe 동시 실패(상관 장애)</text>
+
+  <line x1="860" y1="145" x2="910" y2="145" stroke="#dc2626" stroke-width="1.6" marker-end="url(#a1)"/>
+  <rect x="910" y="118" width="220" height="55" rx="7" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="1020" y="141" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f1d1d">롤링 업그레이드 완주 실패</text>
+  <text x="1020" y="157" text-anchor="middle" font-size="9.5" fill="#991b1b">노드별 독립 상태 판정 불가</text>
+
+  <!-- fix arrow: placed below all boxes, clear of everything -->
+  <text x="500" y="296" text-anchor="middle" font-size="10" fill="#166534">조치: 5곳 모두 노드 실 IP로 수정(플래그·annotation 순차, kubeconfig는 kubeadm phase로 재생성) — 1대씩 순차 적용·검증</text>
+  <line x1="910" y1="308" x2="130" y2="308" stroke="#16a34a" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#a1)"/>
+
+  <rect x="20" y="320" width="210" height="50" rx="7" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="125" y="342" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#14532d">엔드포인트 3개 정상</text>
+  <text x="125" y="358" text-anchor="middle" font-size="9.5" fill="#166534">probe host 노드별 분리 → 업그레이드 완주</text>
+
+  <text x="20" y="400" font-size="10" fill="#64748b">진단 단서: kubectl get endpoints kubernetes 가 VIP 1개로만 잡힘(정상은 컨트롤플레인 대수만큼 실 IP)</text>
+  <text x="20" y="416" font-size="10" fill="#64748b">kube-apiserver는 --bind-address(0.0.0.0)로 기동해 오설정이어도 기동 로그엔 에러 없음 — 평시엔 드러나지 않다가 롤링 업그레이드 시점에만 표면화</text>
+</svg>

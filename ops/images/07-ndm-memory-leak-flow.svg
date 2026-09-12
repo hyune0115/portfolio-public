@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 260" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1100" height="260" fill="#ffffff"/>
+  <defs>
+    <marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="26" font-size="13" font-weight="bold" fill="#111827">OpenEBS NDM 메모리 누수 원인 규명 흐름</text>
+
+  <rect x="20" y="45" width="170" height="55" rx="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="105" y="68" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1e3a8a">상용 백업 솔루션</text>
+  <text x="105" y="84" text-anchor="middle" font-size="9.5" fill="#1e40af">가상 디바이스 생성(/dev/hcp1)</text>
+
+  <line x1="190" y1="72" x2="220" y2="72" stroke="#334155" stroke-width="1.6" marker-end="url(#a1)"/>
+
+  <rect x="220" y="45" width="190" height="55" rx="7" fill="#fff7ed" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="315" y="68" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7c2d12">NDM이 스캔 대상 인식</text>
+  <text x="315" y="84" text-anchor="middle" font-size="9.5" fill="#9a3412">파티션 메타데이터 조회 시도</text>
+
+  <line x1="410" y1="72" x2="440" y2="72" stroke="#334155" stroke-width="1.6" marker-end="url(#a1)"/>
+
+  <rect x="440" y="45" width="190" height="55" rx="7" fill="#fef2f2" stroke="#dc2626" stroke-width="1.4"/>
+  <text x="535" y="68" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f1d1d">메타데이터 조회 실패</text>
+  <text x="535" y="84" text-anchor="middle" font-size="9.5" fill="#991b1b">Udevice 생성 불가, 스캔 hang</text>
+
+  <line x1="630" y1="72" x2="660" y2="72" stroke="#334155" stroke-width="1.6" marker-end="url(#a1)"/>
+
+  <rect x="660" y="45" width="200" height="55" rx="7" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="760" y="68" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7f1d1d">메모리 미해제 누적</text>
+  <text x="760" y="84" text-anchor="middle" font-size="9.5" fill="#991b1b">반복 스캔마다 계속 증가</text>
+
+  <line x1="760" y1="100" x2="760" y2="130" stroke="#334155" stroke-width="1.6" marker-end="url(#a1)"/>
+
+  <rect x="660" y="130" width="200" height="55" rx="7" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="760" y="153" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7f1d1d">노드 OOM</text>
+  <text x="760" y="169" text-anchor="middle" font-size="9.5" fill="#991b1b">고객사 메모리 과사용 신고</text>
+
+  <line x1="660" y1="157" x2="120" y2="157" stroke="#16a34a" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#a1)"/>
+  <text x="370" y="147" text-anchor="middle" font-size="10" fill="#166534">조치: path-filter exclude에 /dev/hcp1 추가 (공식 문서 근거) + DaemonSet 롤링 재기동</text>
+
+  <rect x="20" y="130" width="170" height="55" rx="7" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="105" y="153" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#14532d">메모리 정상 범위 복귀</text>
+  <text x="105" y="169" text-anchor="middle" font-size="9.5" fill="#166534">다운타임 없이 해결</text>
+
+  <text x="20" y="220" font-size="10" fill="#64748b">진단 단서: kubectl logs openebs-ndm에서 "unable to create Udevice object", "invalid capacity" 반복 에러 확인</text>
+  <text x="20" y="236" font-size="10" fill="#64748b">동일 백업 솔루션이 설치된 다른 노드까지 사전 점검해 재발 가능성 선제 차단</text>
+</svg>

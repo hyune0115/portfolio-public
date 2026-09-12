@@ -106,7 +106,7 @@
 - [OpenEBS NDM 메모리 누수로 인한 노드 OOM 대응](ops/07-openebs-ndm-memory-leak.md)
 - [커널 IPv6 비활성화로 인한 애플리케이션 기동 오류 대응](ops/08-ipv6-disable-app-bind-failure.md)
 - [Velero 기반 Kubernetes 클러스터 백업/마이그레이션 PoC](ops/09-velero-cluster-backup-poc.md)
-- [Veeam Kasten 기반 Kubernetes 클러스터 백업/DR PoC](ops/10-veeam-kasten-backup-poc.md)
+- [Veeam Kasten 기반 Kubernetes 클러스터 백업/복원 PoC](ops/10-veeam-kasten-backup-poc.md)
 - [CSAP 재해복구(DR) 백업/복원 검증 테스트](ops/11-csap-dr-backup-restore-test.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성

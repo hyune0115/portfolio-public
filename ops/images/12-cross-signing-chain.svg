@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="900" height="420" fill="#ffffff"/>
+  <text x="20" y="26" font-size="13" font-weight="bold" fill="#111827">Sectigo Cross-Signing 인증서 체인</text>
+
+  <!-- Legacy root -->
+  <rect x="60" y="55" width="330" height="70" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="80" y="80" font-size="12" font-weight="bold" fill="#14532d">Legacy Root (구형 트러스트스토어에 이미 배포)</text>
+  <text x="80" y="98" font-size="10.5" fill="#166534">USERTrust RSA/ECC Certification Authority</text>
+  <text x="80" y="114" font-size="10.5" fill="#166534">AAA Certificate Services</text>
+
+  <!-- New root -->
+  <rect x="510" y="55" width="330" height="70" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="530" y="80" font-size="12" font-weight="bold" fill="#1e3a8a">New Root (신규 발급 계층)</text>
+  <text x="530" y="98" font-size="10.5" fill="#1e40af">Sectigo Public Server Authentication Root R46/E46</text>
+
+  <!-- cross-sign arrow -->
+  <line x1="390" y1="90" x2="510" y2="90" stroke="#7c3aed" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="400" y="78" font-size="10" fill="#5b21b6">Cross-Signing (교차서명)</text>
+
+  <!-- Intermediate CA -->
+  <rect x="285" y="165" width="330" height="70" rx="8" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.6"/>
+  <text x="305" y="190" font-size="12" font-weight="bold" fill="#4c1d95">중간 CA (~2025-05-15 / 2025-05-15~)</text>
+  <text x="305" y="208" font-size="10.5" fill="#5b21b6">Sectigo RSA/ECC OV Secure Server CA</text>
+  <text x="305" y="224" font-size="10.5" fill="#5b21b6">→ Sectigo Public Server Authentication CA OV R36/E36</text>
+
+  <line x1="255" y1="125" x2="400" y2="163" stroke="#334155" stroke-width="1.4"/>
+  <line x1="675" y1="125" x2="530" y2="163" stroke="#334155" stroke-width="1.4"/>
+
+  <!-- End entity -->
+  <rect x="285" y="275" width="330" height="60" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="305" y="300" font-size="12" font-weight="bold" fill="#7c2d12">End-Entity 서버 인증서</text>
+  <text x="305" y="317" font-size="10.5" fill="#9a3412">고객사 도메인용 서버 인증서 (재발급)</text>
+  <line x1="450" y1="235" x2="450" y2="273" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- verifiers -->
+  <rect x="60" y="360" width="330" height="45" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.2"/>
+  <text x="80" y="387" font-size="10.5" fill="#334155">A10 로드밸런서 — Legacy Root만 보유해도 체인 검증 통과</text>
+
+  <rect x="510" y="360" width="330" height="45" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.2"/>
+  <text x="530" y="387" font-size="10.5" fill="#334155">Java 앱(hairpin-NAT 자기 호출) — keytool cacerts 갱신 필요</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+</svg>

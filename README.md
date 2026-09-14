@@ -108,6 +108,7 @@
 - [Velero 기반 Kubernetes 클러스터 백업/마이그레이션 PoC](ops/09-velero-cluster-backup-poc.md)
 - [Veeam Kasten 기반 Kubernetes 클러스터 백업/복원 PoC](ops/10-veeam-kasten-backup-poc.md)
 - [CSAP 재해복구(DR) 백업/복원 검증 테스트](ops/11-csap-dr-backup-restore-test.md)
+- [글로벌 CA Root 전환에 따른 PKI 인증오류 대응 (Cross-Signing 인증서 적용)](ops/12-ssl-ca-root-transition-pki-error.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

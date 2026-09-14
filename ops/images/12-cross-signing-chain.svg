@@ -34,10 +34,10 @@
 
   <!-- verifiers -->
   <rect x="60" y="360" width="330" height="45" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.2"/>
-  <text x="80" y="387" font-size="10.5" fill="#334155">A10 로드밸런서 — Legacy Root만 보유해도 체인 검증 통과</text>
+  <text x="80" y="387" font-size="10.5" fill="#334155">A10 로드밸런서 — 단순 경로, 체인 검증 주체 아님</text>
 
   <rect x="510" y="360" width="330" height="45" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.2"/>
-  <text x="530" y="387" font-size="10.5" fill="#334155">Java 앱(hairpin-NAT 자기 호출) — keytool cacerts 갱신 필요</text>
+  <text x="530" y="387" font-size="10.5" fill="#334155">Java 앱(hairpin-NAT 자기 호출) — 실제 검증 주체, cacerts 갱신 필요</text>
 
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">

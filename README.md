@@ -110,6 +110,7 @@
 - [CSAP 재해복구(DR) 백업/복원 검증 테스트](ops/11-csap-dr-backup-restore-test.md)
 - [글로벌 CA Root 전환에 따른 PKI 인증오류 대응 (Cross-Signing 인증서 적용)](ops/12-ssl-ca-root-transition-pki-error.md)
 - [SSL-Offload 이후 WSS 프로토콜 HTTP 강제 변환 대응](ops/13-wss-protocol-forced-http-conversion.md)
+- [Kubernetes 클러스터 간 Redis 마이그레이션 — Init Container 기반 RDB 복원 자동화](ops/14-redis-migration-init-container-rdb-restore.md)
 
 ### [monitoring/](monitoring/) - 모니터링, 관측성
 

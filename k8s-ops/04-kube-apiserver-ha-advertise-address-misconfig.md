@@ -1,6 +1,6 @@
 # kube-apiserver HA 오설정으로 인한 kubeadm 업그레이드 실패 대응
 
-> 본 문서가 다루는 3대 컨트롤플레인 HA 클러스터(HAProxy LB) 구조는 선행 프로젝트 [11-saas-master-worker-ha-separation.md](11-saas-master-worker-ha-separation.md)에서 구축한 것이다.
+> 본 문서가 다루는 3대 컨트롤플레인 HA 클러스터(HAProxy LB) 구조는 선행 프로젝트 [07-saas-k8s-ha-master-worker-separation.md](07-saas-k8s-ha-master-worker-separation.md)에서 구축한 것이다.
 
 ## 1. 배경
 
@@ -43,7 +43,7 @@
 
 ## 3. 구성도 (원인 → 조치 흐름)
 
-![advertise-address 오설정 5곳 파생 구조](images/07-advertise-address-fanout.svg)
+![advertise-address 오설정 5곳 파생 구조](images/04-advertise-address-fanout.svg)
 
 ```
 STEP 1  kubeadm 패치 업그레이드 중 3대 kubelet 동시 probe 실패 확인

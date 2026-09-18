@@ -1,4 +1,4 @@
-# 사내 SaaS 제품 고가용성 환경 구성 — 마스터/워커 노드 분리 및 API 서버 HA 구축
+# 사내 SaaS K8s HA 구축 (마스터/워커 분리)
 
 ## 1. 배경
 
@@ -34,7 +34,7 @@
 
 ## 3. 구성도
 
-![마스터/워커 분리 및 API 서버 HA 토폴로지](images/11-master-worker-ha-topology.svg)
+![마스터/워커 분리 및 API 서버 HA 토폴로지](images/07-master-worker-ha-topology.svg)
 
 ```
 STEP 1  AS-IS 진단 — all-master 구성에서 마스터 장애 시 다운타임 약 2분 확인

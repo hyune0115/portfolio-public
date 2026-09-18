@@ -96,6 +96,7 @@
 ### [iac/](iac/) - IaC, 구축 자동화
 
 - [Kubernetes 클러스터 구성 자동화 4-Tier 리팩토링](iac/01-k8s-install-automation-refactor.md)
+- [Kubernetes 클러스터 부트스트랩 툴 고도화 — Kubespray에서 kubeadm 기반으로 전환](iac/02-kubespray-to-kubeadm-migration.md)
 
 ### [ops/](ops/) - 운영, 장애대응
 

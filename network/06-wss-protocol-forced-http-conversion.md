@@ -20,7 +20,7 @@
    직접 재호출 시 Backend는 정상 응답해 문제가 없음을 확인했고, 실제 경로에서만 101
    대신 HTTP 응답이 오는 것을 확인해 원인을 Client ↔ A10 구간으로 특정
 
-![WSS 프로토콜 업그레이드 핸드셰이크와 A10 프로토콜 고정 문제](images/13-websocket-upgrade-handshake.svg)
+![WSS 프로토콜 업그레이드 핸드셰이크와 A10 프로토콜 고정 문제](images/06-websocket-upgrade-handshake.svg)
 
 ## 3. AS-IS / TO-BE 비교
 

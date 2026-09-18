@@ -29,7 +29,7 @@
 
 ## 3. 구성도 (백업/마이그레이션 흐름)
 
-![오픈소스·상용 백업 PoC 교차 검증 흐름](images/09-10-backup-poc-cross-validation.svg)
+![오픈소스·상용 백업 PoC 교차 검증 흐름](images/03-04-backup-poc-cross-validation.svg)
 
 ```
 STEP 1  MinIO(오브젝트 스토리지) 설치 — Velero 백업 대상 스토리지

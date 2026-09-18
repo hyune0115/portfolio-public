@@ -20,7 +20,7 @@
    정상이었고 Java만 실패, GoDaddy 건은 전환 시점이 최근이라 Chrome 브라우저 자체도 아직
    신규 Root를 반영하지 못해 함께 실패
 
-![Sectigo Cross-Signing 인증서 체인](images/12-cross-signing-chain.svg)
+![Sectigo Cross-Signing 인증서 체인](images/04-cross-signing-chain.svg)
 
 - CA는 신규 Root로 전환하면서도, 오래된 Root일수록 더 널리 배포돼 있다는 점을 활용해
   신규 Root를 레거시 Root로 교차서명(Cross-Signing)한 인증서를 함께 제공 — Java 버전을

@@ -1,5 +1,7 @@
 # kube-apiserver HA 오설정으로 인한 kubeadm 업그레이드 실패 대응
 
+> 본 문서가 다루는 3대 컨트롤플레인 HA 클러스터(HAProxy LB) 구조는 선행 프로젝트 [11-saas-master-worker-ha-separation.md](11-saas-master-worker-ha-separation.md)에서 구축한 것이다.
+
 ## 1. 배경
 
 ### 가. 증상

@@ -83,6 +83,7 @@
 - [Traefik 전역 TLS 정책과 레거시 클라이언트 호환성 충돌 대응](k8s-ops/08-traefik-tls-minversion-scoped-override.md)
 - [멀티 NIC 환경에서 Calico BGP Node IP 오선택 장애 대응](k8s-ops/09-calico-multi-nic-bgp-node-ip-misdetection.md)
 - [ConfigMap/Secret 변경 자동 반영 검토 및 부분 구현](k8s-ops/10-config-reloader-review.md)
+- [사내 SaaS 제품 고가용성 환경 구성 — 마스터/워커 노드 분리 및 API 서버 HA 구축](k8s-ops/11-saas-master-worker-ha-separation.md)
 
 ### [security/](security/) - 보안, 컴플라이언스
 

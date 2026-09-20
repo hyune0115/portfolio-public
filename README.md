@@ -8,26 +8,26 @@
 
 ### 🚀 Key Achievements (핵심 성과)
 
-- **GitOps(ArgoCD-GitLab) 배포 파이프라인 안정화** — 일일 장애 발생 고객사 75-80% 감소
-  ([자세히](cicd/02-argocd-gitlab-cascading-failure.md))
-- **SaaS Kubernetes 고가용성(HA) 아키텍처 재설계** — all-master 구성을 마스터/워커로 분리하고
-  HAProxy+Keepalived 기반 API 서버 HA를 구축해, 컨트롤플레인 장애 시 다운타임을 2분대에서
-  최대 5초(95.45% 감소) 수준까지 단축 (동료 엔지니어와 공동 진행)
+- **GitOps(ArgoCD-GitLab) 배포 파이프라인 안정화** — 배포 연쇄 장애 원인 규명 및 파이프라인 안정화로
+  일일 장애 발생 고객사 75-80% 감소 ([자세히](cicd/02-argocd-gitlab-cascading-failure.md))
+- **SaaS Kubernetes 고가용성(HA) 아키텍처 재설계** — all-master 분리 및 HAProxy+Keepalived 기반
+  컨트롤플레인 HA 구축으로 다운타임 95.5% 단축(2분대 → 최대 5초) *(동료 엔지니어와 공동 진행)*
   ([자세히](k8s-ops/07-saas-k8s-ha-master-worker-separation.md))
-- **Kubernetes HA 구성 심층 트러블슈팅** — advertise-address 오설정이 엔드포인트·kubelet
-  probe·kubeconfig 5곳에 파생되어 발생한 상관 장애를 kubeadm 소스 코드 레벨까지 추적해 규명하고
-  HA 클러스터 업그레이드를 완주시킴 ([자세히](k8s-ops/04-kube-apiserver-ha-advertise-address-misconfig.md))
-- **Kubespray → Kubeadm 기반 클러스터 라이프사이클 툴 전환** — Kubespray에서 kubeadm 기반으로 전환해 버전
-  업그레이드 소요시간을 75.6% 단축(18분 23초 → 4분 29초)
+- **Kubernetes HA 구성 심층 트러블슈팅** — advertise-address 오설정으로 파생된 5개 컴포넌트
+  상관 장애를 kubeadm 소스코드 분석으로 규명, 무중단 HA 업그레이드 완수
+  ([자세히](k8s-ops/04-kube-apiserver-ha-advertise-address-misconfig.md))
+- **Kubeadm 기반 클러스터 라이프사이클 툴 전환** — Kubespray 대체 경량화 엔진 도입으로 버전
+  업그레이드 소요 시간 75.6% 단축(18분 23초 → 4분 29초)
   ([자세히](iac/02-kubespray-to-kubeadm-migration.md))
-- **CSAP SaaS 보안 인증 획득 및 증적 자동화 체계 구축** — kube-bench 기반 141개 항목 전수 진단, 즉시조치 30건 +
-  Kyverno 기반 중기조치 27건으로 CSAP 인증 요건 충족, 이후 유지·갱신 심사에 필요한 반복 증적을
-  자동 생성하는 체계까지 구축해 현재도 운영 중
+- **CSAP SaaS 보안 인증 획득 및 감사 증적 자동화** — kube-bench 141개 항목 전수 조치(즉시 30건 +
+  Kyverno 27건)로 인증 충족 및 정기 감사 증적 자동 생성 체계 구축
   ([진단·조치 자세히](security/01-k8s-cis-benchmark-remediation.md) ·
   [유지보수 자동화 자세히](security/02-csap-maintenance-automation.md))
-- **대규모 멀티 클러스터(6+ Nodes/Clusters) 신규 구축 프로젝트 리딩** — 6개 이상 클러스터 규모의 구축 프로젝트를
-  설치계획부터 오픈 지원까지 전 주기 단독 리딩, 정상 서비스 오픈으로 완료
+- **대규모 멀티 클러스터(6+ Clusters) 신규 구축 프로젝트 리딩** — 6개 이상 엔터프라이즈 클러스터
+  구축 프로젝트를 설치 계획부터 프로덕션 오픈까지 전 주기 단독 완수
   ([자세히](project/01-solution-installation-project-lead.md))
+
+---
 
 ## 🛠 Technical Case Studies & Archives
 
@@ -35,14 +35,14 @@
 
 ### 🌟 Featured Deep Dives (핵심 트러블슈팅 & 아키텍처)
 
-- **[RHEL9 cgroup v2 전환에 따른 JVM 메모리 미인식 OOM 규명 및 런타임 최적화](k8s-ops/01-redhat9-cgroupv2-jdk-oom.md)** — 커널 파라미터 교차 검증으로 원인 특정, JDK 업그레이드로 해결
-- **[NAC ARP 갱신과 Ingress IP 충돌 분석 및 패킷 레벨 장애 해결](network/01-nac-arp-mac-floating-conflict.md)** — 패킷 덤프 기반 원인 후보 배제로 근본 원인 특정, MetalLB 도입으로 해결
-- **[멀티 NIC 환경 Calico BGP 라우팅 결함 분석 및 명시적 인터페이스 격리](network/04-calico-multi-nic-bgp-node-ip-misdetection.md)** — 암묵적 인터페이스 선택 구조 결함을 명시적 대역 지정으로 근본 해결
-- **[커널–애플리케이션 IPv6 불일치에 따른 소켓 바인딩 장애 분석 및 IPv4 단일 스택 표준화](network/05-ipv6-disable-app-bind-failure.md)** — 커널·앱 설정 불일치 규명, IPv4 단일스택 통일로 재발 차단
-- **[클러스터 프로비저닝 자동화 프레임워크 4-Tier 계층화 및 멱등성 개선](iac/01-k8s-install-automation-refactor.md)** — 완료 작업 반복 실행 문제 해결 포함
-- **[Loki 멀티라인 대용량 로그 유실(Drop) 구조적 원인 분석 및 Ingestion Throttling 최적화](monitoring/04-loki-log-drop-rate-limit-tuning.md)** — 특정 모듈 대용량 로그가 ingestion 제한을 초과시키는 구조적 원인 규명
-- **[K8s MariaDB TCP Probe로 인한 Aborted Connection 병목 해결 및 최소권한 보안 개선](k8s-ops/03-mariadb-healthcheck-probe-tcp-abort.md)** — exec probe 전환으로 근본 해결, root 계정 상시 사용 관행을 최소권한 계정으로 개선
-- **[글로벌 Root CA 전환에 따른 PKI 인증 체인 결함 해결 (Cross-Signing 적용)](security/04-ssl-ca-root-transition-pki-error.md)**
+- **[RHEL9 cgroup v2 전환에 따른 JVM 메모리 미인식 OOM 규명 및 런타임 최적화](k8s-ops/01-redhat9-cgroupv2-jdk-oom.md)** — 커널 파라미터 및 cgroup 계층 교차 검증으로 미인식 원인 특정, 호환 JDK 업그레이드로 해결
+- **[NAC ARP 갱신과 Ingress IP 충돌 분석 및 패킷 레벨 장애 해결](network/01-nac-arp-mac-floating-conflict.md)** — tcpdump 패킷 덤프 기반 원인 후보 배제로 L2/L3 충돌 규명, MetalLB 도입으로 근본 해결
+- **[멀티 NIC 환경 Calico BGP 라우팅 결함 분석 및 명시적 인터페이스 격리](network/04-calico-multi-nic-bgp-node-ip-misdetection.md)** — CNI의 암묵적 인터페이스 선택 결함을 분석하고 명시적 CIDR 바인딩으로 라우팅 경로 정상화
+- **[커널–애플리케이션 IPv6 불일치에 따른 소켓 바인딩 장애 분석 및 IPv4 단일 스택 표준화](network/05-ipv6-disable-app-bind-failure.md)** — 커널 비활성화와 앱 설정 불일치로 인한 크래시 규명, 배포 스펙 IPv4 단일 스택 통일로 재발 차단
+- **[클러스터 프로비저닝 자동화 프레임워크 4-Tier 계층화 및 멱등성 개선](iac/01-k8s-install-automation-refactor.md)** — 계층별 의존성 분리 및 실행 상태 추적을 통해 실패 시 불필요한 반복 실행 문제 해결 및 멱등성 보장
+- **[Loki 멀티라인 대용량 로그 유실(Drop) 구조적 원인 분석 및 Ingestion Throttling 최적화](monitoring/04-loki-log-drop-rate-limit-tuning.md)** — 멀티라인 스택 트레이스의 Ingestion 쿼터 초과 구조 규명 및 버퍼/Rate Limit 최적화로 유실 차단
+- **[K8s MariaDB TCP Probe로 인한 Aborted Connection 병목 해결 및 최소권한 보안 개선](k8s-ops/03-mariadb-healthcheck-probe-tcp-abort.md)** — 불완전 핸드셰이크를 exec probe로 전환해 소켓 병목을 해결하고, root 사용 관행을 최소권한 전용 계정으로 개선
+- **[글로벌 Root CA 전환에 따른 PKI 인증 체인 결함 해결 (Cross-Signing 적용)](security/04-ssl-ca-root-transition-pki-error.md)** — 신·구 Root CA 간 교차 서명(Cross-Signing) 체인 구성으로 레거시 호환성 보장 및 TLS 통신 단절 방지
 
 ---
 

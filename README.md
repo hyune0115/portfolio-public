@@ -10,12 +10,14 @@
 
 - **GitOps(ArgoCD-GitLab) 배포 파이프라인 안정화** — 배포 연쇄 장애 원인 규명 및 파이프라인 안정화로
   일일 장애 발생 고객사 75-80% 감소 ([자세히](cicd/02-argocd-gitlab-cascading-failure.md))
-- **SaaS Kubernetes 고가용성(HA) 아키텍처 재설계** — all-master 분리 및 HAProxy+Keepalived 기반
-  컨트롤플레인 HA 구축으로 다운타임 95.5% 단축(2분대 → 최대 5초) *(동료 엔지니어와 공동 진행)*
-  ([자세히](k8s-ops/07-saas-k8s-ha-master-worker-separation.md))
-- **Kubernetes HA 구성 심층 트러블슈팅** — advertise-address 오설정으로 파생된 5개 컴포넌트
-  상관 장애를 kubeadm 소스코드 분석으로 규명, 무중단 HA 업그레이드 완수
-  ([자세히](k8s-ops/04-kube-apiserver-ha-advertise-address-misconfig.md))
+- **SaaS K8s 컨트롤플레인 HA 재설계 및 심층 트러블슈팅** — all-master 구조를 마스터/워커로 분리하고
+  HAProxy+Keepalived 기반 HA를 구축해 다운타임을 95.5% 단축(2분대 → 5초)했으며, 구축 중 발생한
+  advertise-address 다중 파생 장애를 kubeadm 소스코드 분석으로 규명해 무중단 업그레이드 완수
+  *(공동 진행)* ([HA 구축 자세히](k8s-ops/07-saas-k8s-ha-master-worker-separation.md) ·
+  [장애 규명 자세히](k8s-ops/04-kube-apiserver-ha-advertise-address-misconfig.md))
+- **RHEL9 cgroup v2 전환 대응 및 JVM 메모리 미인식 OOM 해결** — OS 업그레이드 후 발생한 컨테이너
+  OOM의 근본 원인을 커널 파라미터 교차 검증으로 특정(cgroup v2 미인식), 런타임 최적화 및 호환
+  JDK 업그레이드로 무중단 서비스 안정화 ([자세히](k8s-ops/01-redhat9-cgroupv2-jdk-oom.md))
 - **Kubeadm 기반 클러스터 라이프사이클 툴 전환** — Kubespray 대체 경량화 엔진 도입으로 버전
   업그레이드 소요 시간 75.6% 단축(18분 23초 → 4분 29초)
   ([자세히](iac/02-kubespray-to-kubeadm-migration.md))
@@ -35,7 +37,6 @@
 
 ### 🌟 Featured Deep Dives (핵심 트러블슈팅 & 아키텍처)
 
-- **[RHEL9 cgroup v2 전환에 따른 JVM 메모리 미인식 OOM 규명 및 런타임 최적화](k8s-ops/01-redhat9-cgroupv2-jdk-oom.md)** — 커널 파라미터 및 cgroup 계층 교차 검증으로 미인식 원인 특정, 호환 JDK 업그레이드로 해결
 - **[NAC ARP 갱신과 Ingress IP 충돌 분석 및 패킷 레벨 장애 해결](network/01-nac-arp-mac-floating-conflict.md)** — tcpdump 패킷 덤프 기반 원인 후보 배제로 L2/L3 충돌 규명, MetalLB 도입으로 근본 해결
 - **[멀티 NIC 환경 Calico BGP 라우팅 결함 분석 및 명시적 인터페이스 격리](network/04-calico-multi-nic-bgp-node-ip-misdetection.md)** — CNI의 암묵적 인터페이스 선택 결함을 분석하고 명시적 CIDR 바인딩으로 라우팅 경로 정상화
 - **[커널–애플리케이션 IPv6 불일치에 따른 소켓 바인딩 장애 분석 및 IPv4 단일 스택 표준화](network/05-ipv6-disable-app-bind-failure.md)** — 커널 비활성화와 앱 설정 불일치로 인한 크래시 규명, 배포 스펙 IPv4 단일 스택 통일로 재발 차단

@@ -30,6 +30,9 @@
 - **대규모 멀티 클러스터(6+ Clusters) 신규 구축 프로젝트 리딩** — 6개 이상 엔터프라이즈 클러스터
   구축 프로젝트를 설치 계획부터 프로덕션 오픈까지 전 주기 단독 완수
   ([자세히](project/01-solution-installation-project-lead.md))
+- **국가중요시설 공공기관 그룹웨어 구축 (진행 중)** — 인프라 구축·이행 기술 영역을 단독으로 수행하며,
+  공유 스토리지 미입고 제약 하에서 nodeSelector 고정 + Galera 단독 기동 방식의 되돌릴 수 있는 단계적 이행을
+  직접 설계해 운영계 1차 이행 완료 ([자세히](project/02-public-institution-groupware-build.md))
 
 ---
 
@@ -57,4 +60,4 @@
 | **Security & Compliance** | CSAP, Kyverno, kube-bench, PKI | • CSAP 보안 취약점 전수 진단·조치 및 자동화<br>• 글로벌 Root CA 전환 Cross-Signing 대응 | [`security/`](security/) |
 | **IaC & CI/CD** | Ansible, ArgoCD, GitLab, Harbor, Helm | • 클러스터 구성 자동화 4-Tier 리팩토링<br>• 부트스트랩 도구 전환(Kubespray → kubeadm)으로 업그레이드 시간 75.6% 단축<br>• ArgoCD-GitLab 연쇄 장애 근본원인 규명 및 해결 | [`iac/`](iac/)<br>[`cicd/`](cicd/) |
 | **Observability & DR** | Prometheus, Loki, Alloy, Velero | • Promtail → Alloy 에이전트 마이그레이션<br>• Loki Ingestion Rate Limit 튜닝 및 S3 전환<br>• Redis Replica 기반 Diskless 원격 백업 구현 | [`monitoring/`](monitoring/)<br>[`backup/`](backup/) |
-| **Cloud & Leadership** | NCP, Hybrid Cloud, PM | • 온프레미스 솔루션 클라우드 공통 아키텍처 설계<br>• 6개 이상 클러스터 규모 구축 프로젝트 전 주기 리딩 | [`cloud/`](cloud/)<br>[`project/`](project/) |
+| **Cloud & Leadership** | NCP, Hybrid Cloud, PM, MariaDB Galera, firewalld | • 온프레미스 솔루션 클라우드 공통 아키텍처 설계<br>• 6개 이상 클러스터 규모 구축 프로젝트 전 주기 리딩<br>• 국가중요시설 그룹웨어 구축 단계적 이행 설계 (진행 중) | [`cloud/`](cloud/)<br>[`project/`](project/) |

@@ -27,12 +27,12 @@
   Kyverno 27건)로 인증 충족 및 정기 감사 증적 자동 생성 체계 구축
   ([진단·조치 자세히](security/01-k8s-cis-benchmark-remediation.md) ·
   [유지보수 자동화 자세히](security/02-csap-maintenance-automation.md))
-- **대규모 멀티 클러스터(6+ Clusters) 신규 구축 프로젝트 리딩** — 6개 이상 엔터프라이즈 클러스터
-  구축 프로젝트를 설치 계획부터 프로덕션 오픈까지 전 주기 단독 완수
-  ([자세히](project/01-solution-installation-project-lead.md))
-- **국가중요시설 공공기관 그룹웨어 구축 (진행 중)** — 인프라 구축·이행 기술 영역을 단독으로 수행하며,
-  공유 스토리지 미입고 제약 하에서 nodeSelector 고정 + Galera 단독 기동 방식의 되돌릴 수 있는 단계적 이행을
-  직접 설계해 운영계 1차 이행 완료 ([자세히](project/02-public-institution-groupware-build.md))
+- **그룹웨어 신규 구축 프로젝트 리딩 (대규모 멀티 클러스터 · 공공기관 단계적 이행)** — 6개 이상 엔터프라이즈
+  클러스터 구축을 설치 계획부터 프로덕션 오픈까지 전 주기 단독 완수했고, 국가중요시설 공공기관 구축에서는
+  공유 스토리지 미입고 제약 하에 nodeSelector 고정 + Galera 단독 기동 방식의 되돌릴 수 있는 단계적 이행을
+  직접 설계해 운영계 1차 이행 완료 *(진행 중)*
+  ([대규모 구축 리딩 자세히](project/01-solution-installation-project-lead.md) ·
+  [공공기관 구축(진행 중) 자세히](project/02-public-institution-groupware-build.md))
 
 ---
 

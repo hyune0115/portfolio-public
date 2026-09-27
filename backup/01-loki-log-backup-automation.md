@@ -43,6 +43,8 @@
 
 ## 3. 구성도 (백업 파이프라인)
 
+![Loki 로그 백업 파이프라인](images/01-loki-log-backup-pipeline.svg)
+
 ```
 STEP 1  CronJob 기동 (매일, 전일 로그 대상)
   │

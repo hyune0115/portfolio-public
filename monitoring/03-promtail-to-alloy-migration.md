@@ -27,6 +27,8 @@
 
 ## 3. 구성도 (마이그레이션 흐름)
 
+![Promtail에서 Alloy로 마이그레이션](images/03-promtail-to-alloy-migration.svg)
+
 ```
 STEP 1  alloy convert로 Promtail 설정 → Alloy 설정 변환
   │

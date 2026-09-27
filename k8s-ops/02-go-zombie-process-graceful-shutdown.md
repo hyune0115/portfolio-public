@@ -44,6 +44,8 @@
 
 ## 3. 구성도 (종료 흐름)
 
+![쉘 PID 1 vs dumb-init 종료 흐름](images/02-go-graceful-shutdown-flow.svg)
+
 ```
 STEP 1  kubelet이 Pod 종료 요청 → preStop Hook 실행
   │       preStop: 대상 프로세스에 SIGTERM 전송 후 5초 대기

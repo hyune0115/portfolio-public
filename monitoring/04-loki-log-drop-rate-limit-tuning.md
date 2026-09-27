@@ -27,6 +27,8 @@
 
 ## 3. 구성도 (원인분석 및 조치 흐름)
 
+![Loki 로그 적재 흐름과 Ingestion 제한 튜닝 지점](images/04-loki-ingestion-pipeline.svg)
+
 ```
 STEP 1  복수 SaaS 서비스군에서 Loki 로그 누락 현상 파악
   │

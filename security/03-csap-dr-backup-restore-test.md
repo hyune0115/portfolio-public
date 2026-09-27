@@ -28,6 +28,8 @@
 
 ## 3. 구성도 (검증 흐름)
 
+![운영-DR 정합성 검증 구조](images/03-csap-dr-consistency-check.svg)
+
 ```
 STEP 1  서비스별 DB(ERP/메일/그룹웨어인증/모바일/스팸필터/암호키관리) 대상 선정
   │

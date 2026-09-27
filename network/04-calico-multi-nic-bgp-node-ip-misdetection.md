@@ -39,6 +39,8 @@
 
 ## 3. 구성도 (조치 흐름)
 
+![Calico BGP Node IP 감지 firstFound vs 대역 명시](images/04-calico-bgp-node-ip-detection.svg)
+
 ```
 STEP 1  멀티 NIC 환경에서 BGP 피어링 실패로 Pod 통신 장애 발생 확인
   │

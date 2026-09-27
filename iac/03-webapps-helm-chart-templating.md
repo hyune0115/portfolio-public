@@ -34,6 +34,8 @@
 
 ## 3. 변경 토폴로지 (Topology)
 
+![모듈별 raw YAML vs Helm 공통 템플릿 구조](images/03-helm-common-template.svg)
+
 ### 가. AS-IS
 
 ```

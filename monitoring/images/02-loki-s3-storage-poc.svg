@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="'Segoe UI', 'Apple SD Gothic Neo', Helvetica, Arial, sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="a-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="a-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="a-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="a-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="a-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#111827">Loki 로그 스토리지 전환 PoC — NFS 이중 저장 vs S3 오브젝트 스토리지</text>
+  <rect x="20" y="48" width="360" height="364" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="36" y="72" font-size="12.5" font-weight="bold" fill="#7f1d1d">AS-IS · ELK + Loki 이중 저장</text>
+  <rect x="130" y="92" width="140" height="40" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="200.0" y="116.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">애플리케이션 로그</text>
+  <rect x="50" y="170" width="130" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="115.0" y="196.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">ELK Stack</text>
+  <rect x="220" y="170" width="130" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="285.0" y="196.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">Loki</text>
+  <line x1="170" y1="132" x2="115" y2="170" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <line x1="230" y1="132" x2="285" y2="170" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <rect x="90" y="262" width="220" height="50" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="200.0" y="285.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">NFS 스토리지</text>
+  <text x="200.0" y="297.6" text-anchor="middle" font-size="8.5" fill="#991b1b">반년간 약 2TB씩 증가</text>
+  <line x1="115" y1="214" x2="170" y2="262" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <line x1="285" y1="214" x2="230" y2="262" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <rect x="60" y="340" width="280" height="40" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="200.0" y="363.8" text-anchor="middle" font-size="10" font-weight="bold" fill="#7f1d1d">보존 정책 미설정 · 중복 저장</text>
+  <rect x="400" y="48" width="480" height="364" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="416" y="72" font-size="12.5" font-weight="bold" fill="#14532d">PoC · Loki 단일화 + S3 백엔드 (진행 중)</text>
+  <rect x="560" y="92" width="160" height="40" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="640.0" y="116.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">애플리케이션 로그</text>
+  <rect x="540" y="160" width="200" height="50" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="640.0" y="183.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Loki</text>
+  <text x="640.0" y="195.6" text-anchor="middle" font-size="8.5" fill="#166534">자체 보존 28일</text>
+  <line x1="640" y1="132" x2="640" y2="160" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <rect x="420" y="250" width="200" height="56" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="520.0" y="276.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">S3 호환 오브젝트 스토리지</text>
+  <text x="520.0" y="288.6" text-anchor="middle" font-size="8.5" fill="#1e40af">로그 전용 버킷 분리 요청</text>
+  <rect x="660" y="250" width="200" height="56" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+  <text x="760.0" y="276.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">장기보관</text>
+  <text x="760.0" y="288.6" text-anchor="middle" font-size="8.5" fill="#334155">별도 백업 체계에 위임</text>
+  <line x1="600" y1="210" x2="540" y2="250" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <text x="556" y="226" text-anchor="end" font-size="9.5" fill="#991b1b">스트리밍 체크섬 업로드</text>
+  <line x1="680" y1="210" x2="740" y2="250" stroke="#64748b" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#a-gray)"/>
+  <text x="572" y="236" text-anchor="middle" font-size="16" font-weight="bold" fill="#991b1b">✕</text>
+  <rect x="420" y="326" width="440" height="70" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="640.0" y="353.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">객체 쓰기 실패 — 원인 규명 완료</text>
+  <text x="640.0" y="365.7" text-anchor="middle" font-size="9" fill="#92400e">스토리지 장비가 신규 체크섬 프로토콜 미지원</text>
+  <text x="640.0" y="377.9" text-anchor="middle" font-size="9" fill="#92400e">장비 펌웨어 업그레이드 · Loki 신규 버전 대응 설정 확인 중</text>
+</svg>

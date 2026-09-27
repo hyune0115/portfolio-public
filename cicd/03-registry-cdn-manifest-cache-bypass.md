@@ -39,6 +39,8 @@
 
 ## 3. 구성도 (조회 흐름, Pull 기준)
 
+![레지스트리 CDN 매니페스트 캐시 바이패스 AS-IS/TO-BE](images/03-registry-cdn-manifest-bypass.svg)
+
 ```
 STEP 1  HEAD /manifests/<tag> → digest 비교
   │

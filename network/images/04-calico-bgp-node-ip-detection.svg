@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="'Segoe UI', 'Apple SD Gothic Neo', Helvetica, Arial, sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="a-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="a-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="a-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="a-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="a-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#111827">멀티 NIC 환경 Calico BGP Node IP 감지 — firstFound vs 대역 명시</text>
+  <rect x="20" y="48" width="420" height="364" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="36" y="72" font-size="12.5" font-weight="bold" fill="#7f1d1d">AS-IS · firstFound: true</text>
+  <text x="36" y="90" font-size="10.5" fill="#991b1b">먼저 발견된 인터페이스를 선택 (노드마다 순서 다름)</text>
+  <rect x="40" y="96" width="180" height="150" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="130.0" y="175.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d"></text>
+  <text x="54" y="116" text-anchor="start" font-size="11" font-weight="bold" fill="#991b1b">node-1</text>
+  <rect x="54" y="128" width="152" height="44" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+  <text x="130.0" y="148.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">eth0 · 관리망</text>
+  <text x="130.0" y="160.6" text-anchor="middle" font-size="8.5" fill="#334155"> </text>
+  <rect x="54" y="182" width="152" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="130.0" y="202.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">eth1 · BGP망</text>
+  <text x="130.0" y="214.6" text-anchor="middle" font-size="8.5" fill="#991b1b">← BGP Node IP 선택</text>
+  <rect x="240" y="96" width="180" height="150" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="330.0" y="175.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d"></text>
+  <text x="254" y="116" text-anchor="start" font-size="11" font-weight="bold" fill="#991b1b">node-2</text>
+  <rect x="254" y="128" width="152" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="330.0" y="148.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">eth0 · 관리망</text>
+  <text x="330.0" y="160.6" text-anchor="middle" font-size="8.5" fill="#991b1b">← BGP Node IP 선택</text>
+  <rect x="254" y="182" width="152" height="44" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+  <text x="330.0" y="202.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">eth1 · BGP망</text>
+  <text x="330.0" y="214.6" text-anchor="middle" font-size="8.5" fill="#334155"> </text>
+  <rect x="40" y="266" width="380" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="230.0" y="286.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">nodeAddressAutodetectionV4</text>
+  <text x="230.0" y="298.6" text-anchor="middle" font-size="8.5" fill="#991b1b">firstFound: true</text>
+  <rect x="40" y="330" width="380" height="56" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="230.0" y="356.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">BGP 피어링 실패 → Pod 간 통신 장애</text>
+  <text x="230.0" y="368.8" text-anchor="middle" font-size="9" fill="#991b1b">노드 간 PEER ADDRESS 대역 불일치</text>
+  <rect x="460" y="48" width="420" height="364" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="476" y="72" font-size="12.5" font-weight="bold" fill="#14532d">TO-BE · BGP 대역 명시</text>
+  <text x="476" y="90" font-size="10.5" fill="#166534">재부팅·재기동과 무관하게 항상 동일 대역 선택</text>
+  <rect x="480" y="96" width="180" height="150" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="570.0" y="175.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d"></text>
+  <text x="494" y="116" text-anchor="start" font-size="11" font-weight="bold" fill="#166534">node-1</text>
+  <rect x="494" y="128" width="152" height="44" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+  <text x="570.0" y="148.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">eth0 · 관리망</text>
+  <text x="570.0" y="160.6" text-anchor="middle" font-size="8.5" fill="#334155"> </text>
+  <rect x="494" y="182" width="152" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="570.0" y="202.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">eth1 · BGP망</text>
+  <text x="570.0" y="214.6" text-anchor="middle" font-size="8.5" fill="#166534">← BGP Node IP 선택</text>
+  <rect x="680" y="96" width="180" height="150" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="770.0" y="175.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d"></text>
+  <text x="694" y="116" text-anchor="start" font-size="11" font-weight="bold" fill="#166534">node-2</text>
+  <rect x="694" y="128" width="152" height="44" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+  <text x="770.0" y="148.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">eth0 · 관리망</text>
+  <text x="770.0" y="160.6" text-anchor="middle" font-size="8.5" fill="#334155"> </text>
+  <rect x="694" y="182" width="152" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="202.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">eth1 · BGP망</text>
+  <text x="770.0" y="214.6" text-anchor="middle" font-size="8.5" fill="#166534">← BGP Node IP 선택</text>
+  <rect x="480" y="266" width="380" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="670.0" y="286.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">직접 설치형: IP_AUTODETECTION_METHOD=cidr=&lt;bgp-cidr&gt;</text>
+  <text x="670.0" y="298.6" text-anchor="middle" font-size="8.5" fill="#166534">Operator 관리형: nodeAddressAutodetectionV4.cidrs</text>
+  <rect x="480" y="330" width="380" height="56" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="670.0" y="356.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">BGP 피어링 정상화</text>
+  <text x="670.0" y="368.8" text-anchor="middle" font-size="9" fill="#166534">calicoctl node status로 확인</text>
+</svg>

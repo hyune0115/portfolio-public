@@ -36,6 +36,8 @@
 
 ## 3. 조치 흐름
 
+![CSAP 유지보수 자동화 실행 구조](images/02-csap-maint-wrapper-structure.svg)
+
 ```
 STEP 1  제각각이던 유지보수 playbook을 단일 entrypoint(maint-wrapper.sh)로 통합
   │

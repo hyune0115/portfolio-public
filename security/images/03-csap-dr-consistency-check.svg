@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Segoe UI', 'Apple SD Gothic Neo', Helvetica, Arial, sans-serif">
+  <rect width="900" height="420" fill="#ffffff"/>
+  <defs>
+    <marker id="a-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="a-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="a-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="a-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="a-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#111827">CSAP 재해복구(DR) 백업/복원 검증 — 운영 vs DR 정합성 비교</text>
+  <rect x="20" y="48" width="220" height="356" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="36" y="72" font-size="12.5" font-weight="bold" fill="#1e3a8a">운영 서버</text>
+  <rect x="40" y="88" width="180" height="28" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="130.0" y="105.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1e3a8a">ERP DB</text>
+  <rect x="40" y="124" width="180" height="28" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="130.0" y="141.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1e3a8a">메일 DB</text>
+  <rect x="40" y="160" width="180" height="28" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="130.0" y="177.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1e3a8a">그룹웨어인증 DB</text>
+  <rect x="40" y="196" width="180" height="28" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="130.0" y="213.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1e3a8a">모바일 DB</text>
+  <rect x="40" y="232" width="180" height="28" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="130.0" y="249.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1e3a8a">스팸필터 DB</text>
+  <rect x="40" y="268" width="180" height="28" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="130.0" y="285.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1e3a8a">암호키관리 DB</text>
+  <rect x="40" y="320" width="180" height="60" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="130.0" y="348.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">ElasticSearch</text>
+  <text x="130.0" y="360.6" text-anchor="middle" font-size="8.5" fill="#1e40af">인덱스 · 문서</text>
+  <rect x="660" y="48" width="220" height="356" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="676" y="72" font-size="12.5" font-weight="bold" fill="#14532d">DR 서버</text>
+  <rect x="680" y="88" width="180" height="28" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="105.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#14532d">ERP DB</text>
+  <rect x="680" y="124" width="180" height="28" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="141.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#14532d">메일 DB</text>
+  <rect x="680" y="160" width="180" height="28" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="177.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#14532d">그룹웨어인증 DB</text>
+  <rect x="680" y="196" width="180" height="28" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="213.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#14532d">모바일 DB</text>
+  <rect x="680" y="232" width="180" height="28" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="249.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#14532d">스팸필터 DB</text>
+  <rect x="680" y="268" width="180" height="28" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="285.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#14532d">암호키관리 DB</text>
+  <rect x="680" y="320" width="180" height="60" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="348.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">ElasticSearch</text>
+  <text x="770.0" y="360.6" text-anchor="middle" font-size="8.5" fill="#166534">인덱스 · 문서</text>
+  <rect x="270" y="110" width="360" height="60" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="450.0" y="138.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">DB 전체 테이블 비교</text>
+  <text x="450.0" y="150.8" text-anchor="middle" font-size="9" fill="#92400e">ROW COUNT + CHECKSUM</text>
+  <rect x="270" y="200" width="360" height="60" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="450.0" y="228.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">ElasticSearch 비교</text>
+  <text x="450.0" y="240.8" text-anchor="middle" font-size="9" fill="#92400e">인덱스 목록 · 문서 수 · 사이즈</text>
+  <rect x="270" y="290" width="360" height="60" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="450.0" y="318.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">백업 저장소 무결성 검증</text>
+  <text x="450.0" y="330.8" text-anchor="middle" font-size="9" fill="#92400e">snapshot repository _verify_integrity</text>
+  <line x1="240" y1="140" x2="270" y2="140" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+  <line x1="660" y1="140" x2="630" y2="140" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <line x1="240" y1="230" x2="270" y2="230" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+  <line x1="660" y1="230" x2="630" y2="230" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <line x1="240" y1="350" x2="270" y2="330" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+  <rect x="270" y="366" width="360" height="38" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="450.0" y="388.9" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1e3a8a">전 항목 정상 → CSAP 심사 증적</text>
+  <line x1="450" y1="350" x2="450" y2="366" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+</svg>

@@ -37,6 +37,8 @@
 
 ## 3. 조치 흐름
 
+![MariaDB probe TCP vs Exec](images/03-mariadb-probe-tcp-vs-exec.svg)
+
 ```
 STEP 1  고객사 문의로 error 로그 용량 급증(750MB+) 및 Aborted connect(13만 건+) 확인
   │

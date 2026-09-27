@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="'Segoe UI', 'Apple SD Gothic Neo', Helvetica, Arial, sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="a-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="a-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="a-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="a-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="a-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#111827">컨테이너 레지스트리 CDN 매니페스트 캐싱 — AS-IS vs TO-BE</text>
+  <rect x="20" y="48" width="420" height="364" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="36" y="72" font-size="12.5" font-weight="bold" fill="#7f1d1d">AS-IS · CDN이 manifest 응답까지 캐싱</text>
+  <text x="36" y="90" font-size="10.5" fill="#991b1b">동일 태그(latest) 재빌드 후 docker pull</text>
+  <rect x="150" y="100" width="160" height="40" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="230.0" y="117.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">docker pull</text>
+  <text x="230.0" y="131.0" text-anchor="middle" font-size="9.5" fill="#991b1b">&lt;image&gt;:latest</text>
+  <rect x="90" y="185" width="280" height="64" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="230.0" y="208.3" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">CDN</text>
+  <text x="230.0" y="221.6" text-anchor="middle" font-size="9.5" fill="#991b1b">/v2/&lt;name&gt;/manifests/latest → CACHE HIT</text>
+  <text x="230.0" y="234.4" text-anchor="middle" font-size="9.5" fill="#991b1b">/v2/&lt;name&gt;/blobs/&lt;digest&gt; → CACHE</text>
+  <rect x="130" y="320" width="200" height="50" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="230.0" y="342.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">Registry (origin)</text>
+  <text x="230.0" y="356.0" text-anchor="middle" font-size="9.5" fill="#991b1b">manifest digest: sha256:B (신규)</text>
+  <line x1="190" y1="140" x2="190" y2="185" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <text x="182" y="166" text-anchor="end" font-size="9.5" fill="#991b1b">HEAD/GET manifests/latest</text>
+  <line x1="270" y1="185" x2="270" y2="140" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <text x="278" y="166" text-anchor="start" font-size="9.5" fill="#991b1b">sha256:A (이전 digest)</text>
+  <line x1="230" y1="249" x2="230" y2="320" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="238" y="290" text-anchor="start" font-size="9.5" fill="#991b1b">origin 미조회</text>
+  <text x="40" y="398" text-anchor="start" font-size="10.5" font-weight="bold" fill="#991b1b">결과: 재빌드한 이미지 대신 이전 이미지를 pull</text>
+  <rect x="460" y="48" width="420" height="364" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="476" y="72" font-size="12.5" font-weight="bold" fill="#14532d">TO-BE · manifests 경로만 캐시 바이패스</text>
+  <text x="476" y="90" font-size="10.5" fill="#166534">blobs(레이어)는 CDN 캐시 유지</text>
+  <rect x="590" y="100" width="160" height="40" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="670.0" y="117.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">docker pull</text>
+  <text x="670.0" y="131.0" text-anchor="middle" font-size="9.5" fill="#166534">&lt;image&gt;:latest</text>
+  <rect x="530" y="185" width="280" height="64" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="670.0" y="208.3" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">CDN</text>
+  <text x="670.0" y="221.6" text-anchor="middle" font-size="9.5" fill="#166534">/v2/&lt;name&gt;/manifests/latest → BYPASS</text>
+  <text x="670.0" y="234.4" text-anchor="middle" font-size="9.5" fill="#166534">/v2/&lt;name&gt;/blobs/&lt;digest&gt; → CACHE</text>
+  <rect x="570" y="320" width="200" height="50" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="670.0" y="342.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Registry (origin)</text>
+  <text x="670.0" y="356.0" text-anchor="middle" font-size="9.5" fill="#166534">manifest digest: sha256:B (신규)</text>
+  <line x1="630" y1="140" x2="630" y2="185" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <text x="622" y="166" text-anchor="end" font-size="9.5" fill="#166534">HEAD/GET manifests/latest</text>
+  <line x1="620" y1="249" x2="620" y2="320" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <text x="580" y="290" text-anchor="start" font-size="9.5" fill="#166534">bypass</text>
+  <line x1="720" y1="320" x2="720" y2="249" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <text x="728" y="290" text-anchor="start" font-size="9.5" fill="#166534">sha256:B</text>
+  <line x1="710" y1="185" x2="710" y2="140" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <text x="718" y="166" text-anchor="start" font-size="9.5" fill="#166534">sha256:B (최신 digest)</text>
+  <text x="480" y="398" text-anchor="start" font-size="10.5" font-weight="bold" fill="#166534">결과: 캐시 퍼지 없이 재빌드 즉시 최신 이미지 반영</text>
+</svg>

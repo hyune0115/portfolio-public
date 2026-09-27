@@ -35,6 +35,8 @@
 
 ## 3. 구성도 (복원 흐름)
 
+![Init Container 기반 Redis RDB 복원 구조](images/05-redis-migration-init-container.svg)
+
 ```
 STEP 1  A 클러스터 트래픽 차단 직후 SAVE/BGSAVE로 최종 RDB 스냅샷 확보
   │

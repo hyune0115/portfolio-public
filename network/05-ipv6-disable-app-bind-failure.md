@@ -26,6 +26,8 @@
 
 ## 3. 구성도 (조치 흐름)
 
+![듀얼스택 불일치 vs IPv4 단일스택](images/05-ipv6-disable-ipv4-single-stack.svg)
+
 ```
 STEP 1  IPv6 소켓 바인딩 애플리케이션 기동 오류 발생
   │

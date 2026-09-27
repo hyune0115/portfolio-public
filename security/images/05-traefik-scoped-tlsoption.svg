@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="'Segoe UI', 'Apple SD Gothic Neo', Helvetica, Arial, sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="a-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="a-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="a-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="a-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="a-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#111827">서비스 단위 TLSOption 격리 — 전역 TLS 정책 유지 + 레거시 예외</text>
+  <rect x="20" y="110" width="170" height="50" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="105.0" y="132.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">레거시 연동 시스템</text>
+  <text x="105.0" y="146.0" text-anchor="middle" font-size="9.5" fill="#92400e">TLS 1.0 only</text>
+  <rect x="20" y="290" width="170" height="50" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="105.0" y="312.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">일반 클라이언트</text>
+  <text x="105.0" y="326.0" text-anchor="middle" font-size="9.5" fill="#1e40af">TLS 1.2+</text>
+  <rect x="230" y="60" width="330" height="350" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.6"/>
+  <text x="246" y="84" font-size="12.5" font-weight="bold" fill="#0f172a">namespace: traefik</text>
+  <text x="246" y="102" font-size="10.5" fill="#334155">Traefik v2.10 (Helm)</text>
+  <rect x="250" y="110" width="290" height="34" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+  <text x="395.0" y="131.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">entryPoint: websecure (:443)</text>
+  <rect x="250" y="170" width="290" height="60" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="395.0" y="191.3" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">TLSOption &lt;서비스전용옵션&gt;</text>
+  <text x="395.0" y="204.6" text-anchor="middle" font-size="9.5" fill="#92400e">minVersion: VersionTLS10</text>
+  <text x="395.0" y="217.4" text-anchor="middle" font-size="9.5" fill="#92400e">maxVersion: VersionTLS13</text>
+  <rect x="250" y="250" width="290" height="44" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="395.0" y="269.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">전역 기본 TLS 정책</text>
+  <text x="395.0" y="283.0" text-anchor="middle" font-size="9.5" fill="#1e40af">minTLSVersion 1.2 (변경 없음)</text>
+  <rect x="250" y="318" width="290" height="44" rx="5" fill="#f8fafc" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="395.0" y="337.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">providers.kubernetesCRD</text>
+  <text x="395.0" y="351.0" text-anchor="middle" font-size="9.5" fill="#334155">allowCrossNamespace: true</text>
+  <line x1="190" y1="135" x2="250" y2="127" stroke="#d97706" stroke-width="1.4" marker-end="url(#a-amber)"/>
+  <text x="200" y="124" text-anchor="start" font-size="9.5" fill="#92400e">TLS 1.0</text>
+  <line x1="190" y1="315" x2="250" y2="135" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+  <text x="208" y="225" text-anchor="end" font-size="9.5" fill="#1e40af">TLS 1.2+</text>
+  <rect x="600" y="60" width="280" height="170" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.6"/>
+  <text x="616" y="84" font-size="12.5" font-weight="bold" fill="#78350f">namespace: &lt;대상 서비스&gt;</text>
+  <rect x="620" y="96" width="240" height="60" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="740.0" y="117.3" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">IngressRoute</text>
+  <text x="740.0" y="130.6" text-anchor="middle" font-size="9.5" fill="#92400e">tls.options:</text>
+  <text x="740.0" y="143.4" text-anchor="middle" font-size="9.5" fill="#92400e">name: &lt;서비스전용옵션&gt;, ns: traefik</text>
+  <rect x="660" y="176" width="160" height="36" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="740.0" y="198.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">&lt;서비스&gt;-svc :80</text>
+  <line x1="740" y1="156" x2="740" y2="176" stroke="#d97706" stroke-width="1.4" marker-end="url(#a-amber)"/>
+  <rect x="600" y="250" width="280" height="160" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="616" y="274" font-size="12.5" font-weight="bold" fill="#1e3a8a">namespace: 기타 서비스</text>
+  <rect x="620" y="286" width="240" height="50" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="740.0" y="308.7" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">IngressRoute</text>
+  <text x="740.0" y="322.0" text-anchor="middle" font-size="9.5" fill="#1e40af">tls.options 미지정 → 전역 기본값</text>
+  <rect x="660" y="356" width="160" height="36" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="740.0" y="378.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">서비스 svc</text>
+  <line x1="740" y1="336" x2="740" y2="356" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+  <line x1="620" y1="140" x2="540" y2="200" stroke="#d97706" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#a-amber)"/>
+  <text x="552" y="244" text-anchor="end" font-size="9.5" fill="#92400e">cross-namespace 참조</text>
+  <line x1="620" y1="311" x2="540" y2="272" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#a-blue)"/>
+  <line x1="540" y1="118" x2="620" y2="110" stroke="#d97706" stroke-width="1.4" marker-end="url(#a-amber)"/>
+  <text x="548" y="104" text-anchor="start" font-size="9.5" fill="#92400e">Host 라우팅</text>
+  <polyline points="540,136 580,136 580,300 616,300" fill="none" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+</svg>

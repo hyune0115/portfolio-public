@@ -37,6 +37,8 @@
 
 ## 3. 조치 흐름
 
+![kube-proxy IPVS에서 iptables로 전환](images/03-kubeproxy-ipvs-to-iptables.svg)
+
 ```
 STEP 1  k8s 1.35 릴리즈 노트에서 kube-proxy IPVS deprecated 확인
   │

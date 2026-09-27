@@ -32,6 +32,8 @@
 
 ## 3. 구성 변경 (Topology)
 
+![Kubespray 실행 vs kubeadm 기반 자체 엔진](images/02-kubespray-to-kubeadm.svg)
+
 ### 가. AS-IS
 
 ```

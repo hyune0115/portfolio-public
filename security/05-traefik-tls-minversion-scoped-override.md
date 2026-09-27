@@ -38,6 +38,8 @@
 
 ## 3. 구성도 (조치 흐름)
 
+![서비스 단위 TLSOption 격리 구조](images/05-traefik-scoped-tlsoption.svg)
+
 ```
 STEP 1  특정 외부 연동 시스템과의 TLS handshake 오류 발생 확인
   │

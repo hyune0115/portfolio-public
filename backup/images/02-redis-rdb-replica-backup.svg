@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="'Segoe UI', 'Apple SD Gothic Neo', Helvetica, Arial, sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <defs>
+    <marker id="a-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="a-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="a-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="a-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="a-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#111827">Redis RDB 원격 백업 — Replica 기반 diskless 백업 흐름</text>
+  <rect x="20" y="48" width="300" height="364" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.6"/>
+  <text x="36" y="72" font-size="12.5" font-weight="bold" fill="#0f172a">Redis 배포 구조</text>
+  <rect x="40" y="92" width="260" height="150" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="170.0" y="171.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a"></text>
+  <text x="56" y="112" text-anchor="start" font-size="11" font-weight="bold" fill="#1e40af">Sentinel HA (3노드)</text>
+  <rect x="56" y="124" width="110" height="40" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="111.0" y="148.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">Master</text>
+  <rect x="176" y="124" width="110" height="40" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="231.0" y="148.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Replica 1</text>
+  <rect x="176" y="184" width="110" height="40" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="231.0" y="208.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Replica 2</text>
+  <rect x="56" y="184" width="110" height="40" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2"/>
+  <text x="111.0" y="208.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">Sentinel × 3</text>
+  <line x1="166" y1="144" x2="176" y2="144" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+  <line x1="166" y1="150" x2="176" y2="196" stroke="#2563eb" stroke-width="1.4" marker-end="url(#a-blue)"/>
+  <rect x="40" y="262" width="260" height="70" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="170.0" y="295.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a8a">Standalone (1노드)</text>
+  <text x="170.0" y="307.8" text-anchor="middle" font-size="9" fill="#1e40af">단일 Redis 노드</text>
+  <rect x="340" y="48" width="540" height="364" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="356" y="72" font-size="12.5" font-weight="bold" fill="#14532d">백업 스크립트 (단일 로직)</text>
+  <rect x="360" y="92" width="200" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="460.0" y="112.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">STEP 1 · 구조 판별</text>
+  <text x="460.0" y="124.6" text-anchor="middle" font-size="8.5" fill="#166534">Sentinel 존재 여부</text>
+  <rect x="360" y="162" width="240" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="480.0" y="182.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Sentinel → sentinel slaves</text>
+  <text x="480.0" y="194.6" text-anchor="middle" font-size="8.5" fill="#166534">Replica IP 추출</text>
+  <rect x="360" y="222" width="240" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="480.0" y="247.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Standalone → 노드 IP 사용</text>
+  <text x="480.0" y="251.8" text-anchor="middle" font-size="1" fill="#166534"></text>
+  <line x1="460" y1="136" x2="460" y2="162" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <polyline points="360,114 350,114 350,244 360,244" fill="none" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <rect x="640" y="180" width="220" height="60" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="750.0" y="202.6" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">STEP 2 · redis-cli --rdb</text>
+  <text x="750.0" y="214.9" text-anchor="middle" font-size="8.5" fill="#166534">diskless 원격 RDB 수신</text>
+  <text x="750.0" y="226.3" text-anchor="middle" font-size="8.5" fill="#166534">대상: Replica (Master 부하 없음)</text>
+  <line x1="600" y1="184" x2="640" y2="200" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <line x1="600" y1="244" x2="640" y2="222" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <rect x="360" y="300" width="500" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="610.0" y="320.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">STEP 3 · 하루 단위 tar.gz</text>
+  <text x="610.0" y="332.6" text-anchor="middle" font-size="8.5" fill="#166534">기존 DDL / TRIGGER / DML 덤프와 함께 묶음</text>
+  <line x1="750" y1="240" x2="750" y2="300" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <rect x="360" y="356" width="500" height="40" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+  <text x="610.0" y="380.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">STEP 4 · 백업/복원 테스트 — 1노드 · 3노드 모두 정상</text>
+  <line x1="300" y1="170" x2="360" y2="184" stroke="#64748b" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#a-gray)"/>
+  <line x1="300" y1="297" x2="360" y2="244" stroke="#64748b" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#a-gray)"/>
+</svg>

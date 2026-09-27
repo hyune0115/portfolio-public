@@ -39,6 +39,8 @@
 
 ## 3. 조치 흐름
 
+![externalTrafficPolicy Cluster vs Local 트래픽 경로](images/02-externaltrafficpolicy-cluster-vs-local.svg)
+
 ```
 변경 전 — externalTrafficPolicy 미지정(기본값 Cluster)
 Client ──▶ Node(임의) ──SNAT(클라이언트 IP → 노드 IP)──▶ 다른 노드의 Pod

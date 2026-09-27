@@ -29,6 +29,8 @@
 
 ## 3. 구성도 (백업 흐름)
 
+![Redis RDB Replica 기반 diskless 백업 흐름](images/02-redis-rdb-replica-backup.svg)
+
 ```
 STEP 1  배포 구조 판별 — Sentinel 여부 확인
   │

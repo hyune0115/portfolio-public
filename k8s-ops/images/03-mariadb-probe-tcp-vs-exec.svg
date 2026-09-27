@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="'Segoe UI', 'Apple SD Gothic Neo', Helvetica, Arial, sans-serif">
+  <rect width="900" height="400" fill="#ffffff"/>
+  <defs>
+    <marker id="a-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+    <marker id="a-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="a-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+    <marker id="a-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker>
+    <marker id="a-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="14" font-weight="bold" fill="#111827">MariaDB Healthcheck Probe — TCP vs Exec</text>
+  <rect x="20" y="48" width="420" height="334" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="36" y="72" font-size="12.5" font-weight="bold" fill="#7f1d1d">AS-IS · TCP probe</text>
+  <rect x="60" y="96" width="140" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="130.0" y="116.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">kubelet</text>
+  <text x="130.0" y="128.6" text-anchor="middle" font-size="8.5" fill="#991b1b">tcpSocket :3306</text>
+  <rect x="260" y="96" width="140" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="330.0" y="122.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">MariaDB Pod</text>
+  <line x1="200" y1="118" x2="260" y2="118" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <text x="230" y="90" text-anchor="middle" font-size="9.5" fill="#991b1b">연결 후 즉시 종료</text>
+  <rect x="60" y="180" width="340" height="44" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="230.0" y="200.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">MySQL 핸드셰이크 없음</text>
+  <text x="230.0" y="212.6" text-anchor="middle" font-size="8.5" fill="#991b1b">probe 주기마다 비정상 종료 연결로 기록</text>
+  <rect x="60" y="250" width="340" height="60" rx="5" fill="#fecaca" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="230.0" y="272.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">error 로그</text>
+  <text x="230.0" y="284.7" text-anchor="middle" font-size="9" fill="#991b1b">Aborted connect 13만 건 이상</text>
+  <text x="230.0" y="296.9" text-anchor="middle" font-size="9" fill="#991b1b">로그 파일 750MB 이상</text>
+  <line x1="230" y1="140" x2="230" y2="180" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <line x1="230" y1="224" x2="230" y2="250" stroke="#dc2626" stroke-width="1.4" marker-end="url(#a-red)"/>
+  <rect x="60" y="326" width="340" height="36" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="230.0" y="347.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7f1d1d">관리성 작업에 root 계정 단일 사용 관행</text>
+  <rect x="460" y="48" width="420" height="334" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="476" y="72" font-size="12.5" font-weight="bold" fill="#14532d">TO-BE · Exec probe + 전용 계정</text>
+  <rect x="500" y="96" width="140" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="570.0" y="116.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">kubelet</text>
+  <text x="570.0" y="128.6" text-anchor="middle" font-size="8.5" fill="#166534">exec</text>
+  <rect x="700" y="96" width="140" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="770.0" y="122.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">MariaDB Pod</text>
+  <line x1="640" y1="118" x2="700" y2="118" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <text x="670" y="90" text-anchor="middle" font-size="9.5" fill="#166534">소켓 기반</text>
+  <rect x="500" y="180" width="340" height="44" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="670.0" y="200.4" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">mysqladmin ping / status</text>
+  <text x="670.0" y="212.6" text-anchor="middle" font-size="8.5" fill="#166534">MySQL 프로토콜 레벨 상태 확인</text>
+  <rect x="500" y="250" width="340" height="60" rx="5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2"/>
+  <text x="670.0" y="278.1" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">error 로그</text>
+  <text x="670.0" y="290.8" text-anchor="middle" font-size="9" fill="#166534">Aborted connect 0건</text>
+  <line x1="670" y1="140" x2="670" y2="180" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <line x1="670" y1="224" x2="670" y2="250" stroke="#16a34a" stroke-width="1.4" marker-end="url(#a-green)"/>
+  <rect x="500" y="326" width="340" height="36" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="670.0" y="347.6" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#14532d">probe 전용 최소권한 계정 · 별도 Secret 분리</text>
+</svg>

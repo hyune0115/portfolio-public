@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1000" height="400" fill="#ffffff"/>
+  <defs><marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <text x="20" y="26" font-size="13" font-weight="bold" fill="#111827">MariaDB Galera 단계적 이행 — 1차 구성과 복원 경로</text>
+  <text x="20" y="58" font-size="11.5" font-weight="bold" fill="#7c2d12">DB 노드 (MariaDB 10.11 Galera 3노드)</text>
+  <rect x="20" y="70" width="220" height="90" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130.0" y="103.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e3a8a">MaxScale</text>
+  <text x="130.0" y="119.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">DB 라우팅</text>
+  <text x="130.0" y="135.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">maxctrl list servers 확인</text>
+  <line x1="240" y1="115" x2="275" y2="115" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="280" y="70" width="220" height="90" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="390.0" y="95.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#14532d">DB 1번 (단독 기동)</text>
+  <text x="390.0" y="111.0" text-anchor="middle" font-size="9.5" fill="#166534">Synced / size 1 / Primary</text>
+  <text x="390.0" y="127.0" text-anchor="middle" font-size="9.5" fill="#166534">connected ON · ready ON</text>
+  <text x="390.0" y="143.0" text-anchor="middle" font-size="9.5" fill="#166534">DB 업데이트 수행</text>
+  <rect x="520" y="70" width="220" height="90" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="630.0" y="103.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">DB 2번 (중지)</text>
+  <text x="630.0" y="119.0" text-anchor="middle" font-size="9.5" fill="#64748b">grastate.dat</text>
+  <text x="630.0" y="135.0" text-anchor="middle" font-size="9.5" fill="#64748b">safe_to_bootstrap: 0</text>
+  <rect x="760" y="70" width="220" height="90" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="870.0" y="103.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">DB 3번 (중지)</text>
+  <text x="870.0" y="119.0" text-anchor="middle" font-size="9.5" fill="#64748b">grastate.dat</text>
+  <text x="870.0" y="135.0" text-anchor="middle" font-size="9.5" fill="#64748b">safe_to_bootstrap: 0</text>
+  <text x="20" y="200" font-size="11.5" font-weight="bold" fill="#111827">이행 순서 (완료)</text>
+  <rect x="20" y="212" width="170" height="58" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="105.0" y="237.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#7c2d12">① 설치만 수행</text>
+  <text x="105.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#9a3412">DB 업데이트 task 주석</text>
+  <line x1="190" y1="241" x2="213" y2="241" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="217" y="212" width="170" height="58" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="302.0" y="237.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#7c2d12">② DB 2번 중지</text>
+  <text x="302.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#9a3412">cluster_size 감소 확인</text>
+  <line x1="387" y1="241" x2="410" y2="241" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="414" y="212" width="170" height="58" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="499.0" y="237.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#7c2d12">③ DB 3번 중지</text>
+  <text x="499.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#9a3412">cluster_size 감소 확인</text>
+  <line x1="584" y1="241" x2="607" y2="241" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="611" y="212" width="170" height="58" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="696.0" y="237.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#7c2d12">④ 1번 상태 확인</text>
+  <text x="696.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#9a3412">Synced · Primary</text>
+  <line x1="781" y1="241" x2="804" y2="241" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="808" y="212" width="170" height="58" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="893.0" y="237.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#7c2d12">⑤ 1번 단독</text>
+  <text x="893.0" y="253.0" text-anchor="middle" font-size="9.5" fill="#9a3412">DB 업데이트</text>
+  <text x="20" y="306" font-size="11.5" font-weight="bold" fill="#111827">향후 복원 (예정)</text>
+  <rect x="20" y="318" width="300" height="58" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="170.0" y="343.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">DB 마이그레이션</text>
+  <text x="170.0" y="359.0" text-anchor="middle" font-size="9.5" fill="#475569">기존 데이터 이전</text>
+  <line x1="320" y1="347" x2="347" y2="347" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="350" y="318" width="300" height="58" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="500.0" y="343.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">2·3번 노드 재조인</text>
+  <text x="500.0" y="359.0" text-anchor="middle" font-size="9.5" fill="#475569">순차 조인 후 상태 확인</text>
+  <line x1="650" y1="347" x2="677" y2="347" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="680" y="318" width="300" height="58" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="830.0" y="343.0" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Galera 3노드 복귀</text>
+  <text x="830.0" y="359.0" text-anchor="middle" font-size="9.5" fill="#475569">Synced / size 3</text>
+</svg>

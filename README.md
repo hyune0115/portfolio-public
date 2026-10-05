@@ -61,3 +61,4 @@
 | **IaC & CI/CD** | Ansible, ArgoCD, GitLab, Harbor, Helm | • 클러스터 구성 자동화 4-Tier 리팩토링<br>• 부트스트랩 도구 전환(Kubespray → kubeadm)으로 업그레이드 시간 75.6% 단축<br>• ArgoCD-GitLab 연쇄 장애 근본원인 규명 및 해결 | [`iac/`](iac/)<br>[`cicd/`](cicd/) |
 | **Observability & DR** | Prometheus, Loki, Alloy, Velero | • Promtail → Alloy 에이전트 마이그레이션<br>• Loki Ingestion Rate Limit 튜닝 및 S3 전환<br>• Redis Replica 기반 Diskless 원격 백업 구현 | [`monitoring/`](monitoring/)<br>[`backup/`](backup/) |
 | **Cloud & Leadership** | NCP, Hybrid Cloud, PM, MariaDB Galera, firewalld | • 온프레미스 솔루션 클라우드 공통 아키텍처 설계<br>• 6개 이상 클러스터 규모 구축 프로젝트 전 주기 리딩<br>• 국가중요시설 그룹웨어 구축 단계적 이행 설계 (진행 중) | [`cloud/`](cloud/)<br>[`project/`](project/) |
+| **Storage** | Rook-Ceph, CephFS, NFS-Ganesha, fio | • 상용 NAS → Rook-Ceph 공유볼륨 전환 PoC (진행 중) | [`storage/`](storage/) |

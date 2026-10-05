@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1000" height="420" fill="#ffffff"/>
+  <defs><marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <text x="20" y="26" font-size="13" font-weight="bold" fill="#111827">공유볼륨 전환 구조 — 상용 NAS(AS-IS)와 Rook-Ceph + NFS 게이트웨이(TO-BE)</text>
+  <text x="20" y="58" font-size="11.5" font-weight="bold" fill="#7c2d12">AS-IS — hostPath + 상용 NAS (PV · PVC 없음)</text>
+  <rect x="20" y="70" width="130" height="62" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="85.0" y="89.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">K8s 노드 1</text>
+  <text x="85.0" y="105.0" text-anchor="middle" font-size="9.5" fill="#64748b">앱 Pod · hostPath</text>
+  <text x="85.0" y="121.0" text-anchor="middle" font-size="9.5" fill="#64748b">OS NFS 마운트</text>
+  <line x1="85" y1="132" x2="85" y2="247" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <text x="93" y="194.0" font-size="9.5" fill="#475569">NFSv3</text>
+  <rect x="170" y="70" width="130" height="62" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="235.0" y="89.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">K8s 노드 2</text>
+  <text x="235.0" y="105.0" text-anchor="middle" font-size="9.5" fill="#64748b">앱 Pod · hostPath</text>
+  <text x="235.0" y="121.0" text-anchor="middle" font-size="9.5" fill="#64748b">OS NFS 마운트</text>
+  <line x1="235" y1="132" x2="235" y2="247" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="320" y="70" width="130" height="62" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="385.0" y="89.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#334155">K8s 노드 3</text>
+  <text x="385.0" y="105.0" text-anchor="middle" font-size="9.5" fill="#64748b">앱 Pod · hostPath</text>
+  <text x="385.0" y="121.0" text-anchor="middle" font-size="9.5" fill="#64748b">OS NFS 마운트</text>
+  <line x1="385" y1="132" x2="385" y2="247" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="20" y="250" width="430" height="62" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="235.0" y="269.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7c2d12">NAS 어플라이언스 1대</text>
+  <text x="235.0" y="285.0" text-anchor="middle" font-size="9.5" fill="#9a3412">마운트 옵션 soft · timeo=600 · retrans=2 · nolock</text>
+  <text x="235.0" y="301.0" text-anchor="middle" font-size="9.5" fill="#9a3412">장비 장애 시 전체 중단 (SPOF)</text>
+  <line x1="485" y1="50" x2="485" y2="400" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="520" y="58" font-size="11.5" font-weight="bold" fill="#1e3a8a">TO-BE — Rook-Ceph CephFS + NFS-Ganesha (단일 PV · 공유 PVC)</text>
+  <rect x="520" y="70" width="130" height="62" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="585.0" y="89.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e3a8a">K8s 노드 1</text>
+  <text x="585.0" y="105.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">앱 Pod · PVC + subPath</text>
+  <text x="585.0" y="121.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">NFSv4 마운트 (soft)</text>
+  <line x1="585" y1="132" x2="585" y2="157" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <text x="593" y="149.0" font-size="9.5" fill="#475569">NFSv4.1</text>
+  <rect x="675" y="70" width="130" height="62" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="740.0" y="89.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e3a8a">K8s 노드 2</text>
+  <text x="740.0" y="105.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">앱 Pod · PVC + subPath</text>
+  <text x="740.0" y="121.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">NFSv4 마운트 (soft)</text>
+  <line x1="740" y1="132" x2="740" y2="157" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="830" y="70" width="130" height="62" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="895.0" y="89.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e3a8a">K8s 노드 3</text>
+  <text x="895.0" y="105.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">앱 Pod · PVC + subPath</text>
+  <text x="895.0" y="121.0" text-anchor="middle" font-size="9.5" fill="#1d4ed8">NFSv4 마운트 (soft)</text>
+  <line x1="895" y1="132" x2="895" y2="157" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="520" y="160" width="440" height="50" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="740.0" y="181.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7c2d12">Service → NFS-Ganesha Pod × 1 (Rook CephNFS)</text>
+  <text x="740.0" y="197.0" text-anchor="middle" font-size="9.5" fill="#9a3412">익스포트 /data · 세 노드 중 한 곳에서 실행</text>
+  <line x1="740" y1="210" x2="740" y2="235" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <text x="748" y="227.0" font-size="9.5" fill="#475569">libcephfs</text>
+  <rect x="520" y="238" width="440" height="50" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="740.0" y="259.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#14532d">CephFS — MDS active 1 + standby-replay · MON 3</text>
+  <text x="740.0" y="275.0" text-anchor="middle" font-size="9.5" fill="#166534">데이터/메타데이터 풀 replica 3 · min_size 2 · failure domain host</text>
+  <line x1="585" y1="288" x2="585" y2="313" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="520" y="316" width="130" height="62" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="585.0" y="335.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#14532d">OSD 1</text>
+  <text x="585.0" y="351.0" text-anchor="middle" font-size="9.5" fill="#166534">노드 1 raw 디스크</text>
+  <text x="585.0" y="367.0" text-anchor="middle" font-size="9.5" fill="#166534">10K SAS 2.4TB × 1</text>
+  <line x1="740" y1="288" x2="740" y2="313" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="675" y="316" width="130" height="62" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="740.0" y="335.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#14532d">OSD 2</text>
+  <text x="740.0" y="351.0" text-anchor="middle" font-size="9.5" fill="#166534">노드 2 raw 디스크</text>
+  <text x="740.0" y="367.0" text-anchor="middle" font-size="9.5" fill="#166534">10K SAS 2.4TB × 1</text>
+  <line x1="895" y1="288" x2="895" y2="313" stroke="#334155" stroke-width="1.6" marker-end="url(#a3)"/>
+  <rect x="830" y="316" width="130" height="62" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="895.0" y="335.0" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#14532d">OSD 3</text>
+  <text x="895.0" y="351.0" text-anchor="middle" font-size="9.5" fill="#166534">노드 3 raw 디스크</text>
+  <text x="895.0" y="367.0" text-anchor="middle" font-size="9.5" fill="#166534">10K SAS 2.4TB × 1</text>
+  <text x="520" y="400" font-size="9.5" fill="#475569">물리 총량 7.2TB → 3중 복제 × 운영 상한 85% = 실가용 약 2TB</text>
+</svg>

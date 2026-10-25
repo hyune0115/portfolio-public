@@ -23,7 +23,7 @@
   실행 문제를 해결(멱등성 보장)하고 업그레이드 소요 시간을 75.6% 단축(18분 23초 → 4분 29초)
   ([전환 자세히](iac/02-kubespray-to-kubeadm-migration.md) ·
   [프레임워크 자세히](iac/01-k8s-install-automation-refactor.md))
-- **CSAP SaaS 보안 인증 획득 및 감사 증적 자동화** — kube-bench 141개 항목 전수 조치(즉시 30건 +
+- **CSAP SaaS 보안 인증 획득 및 감사 증적 자동화** — kube-bench 141개 항목 전수 점검 후 57건 조치(즉시 30건 +
   Kyverno 27건)로 인증 충족 및 정기 감사 증적 자동 생성 체계 구축
   ([진단·조치 자세히](security/01-k8s-cis-benchmark-remediation.md) ·
   [유지보수 자동화 자세히](security/02-csap-maintenance-automation.md))

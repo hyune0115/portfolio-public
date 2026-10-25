@@ -59,6 +59,7 @@ STEP 5  쿠버네티스 버전 업그레이드 — 이 HA 구성 위에서 단�
 1) all-master 구성을 마스터/워커 3식씩 분리하고 HAProxy+Keepalived 기반 API 서버 HA를 구축해, 컨트롤플레인 장애 시 다운타임을 2분대에서 최대 5초 수준(95.45% 감소)까지 단축
 2) 컨트롤플레인·워커 노드 증설이 서비스 영향 없이 가능함을 시험으로 검증해 이후 확장 작업의 안전성 근거를 확보
 3) 이 HA 구성 위에서 이후 발생한 kube-apiserver advertise-address 오설정 인시던트의 조사·조치 기반이 됨
+4) 이 마스터/워커 물리 분리와 API 서버 이중화 구성은 CSAP 사후심사 지적 사항 개선 조치로도 적용됨 ([CSAP 유지·갱신 대응 문서](../security/02-csap-maintenance-automation.md))
 
 ---
 

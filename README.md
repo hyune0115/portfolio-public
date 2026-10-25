@@ -8,8 +8,14 @@
 
 ### 🚀 Key Achievements (핵심 성과)
 
-- **GitOps(ArgoCD-GitLab) 배포 파이프라인 안정화** — 배포 연쇄 장애 원인 규명 및 파이프라인 안정화로
-  일일 장애 발생 고객사 75-80% 감소 ([자세히](cicd/02-argocd-gitlab-cascading-failure.md))
+- **GitOps(ArgoCD-GitLab) 배포 파이프라인 안정화** ([자세히](cicd/02-argocd-gitlab-cascading-failure.md))
+  - 연쇄 장애(Cascading Failure) 규명: GitLab 부하로 인한 HTTP 502가 git 클라이언트의 인증정보
+    자동 삭제로 이어지는 전파 경로를 로그 교차 분석으로 규명, credential 저장 방식(store → cache)
+    전환으로 연쇄 차단
+  - 배포 구조 정합성 확보: 이벤트 기반 업데이트 구조에 맞지 않던 주기 폴링(Auto Sync·refresh)을
+    비활성화하고 과거 설치 고객사의 미존재 Repo URL을 전수 정리해 중앙 GitLab 부하 원인 제거
+    → 장애 발생 고객사 일 4-5곳 → 1곳 (75-80% 감소)
+  - 전 과정 단독 수행: 원인 분석, 재현 환경 구축, 개선안 설계, 테스트, 운영 적용
 - **SaaS K8s 컨트롤플레인 HA 재설계 및 심층 트러블슈팅** — all-master 구조를 마스터/워커로 분리하고
   HAProxy+Keepalived 기반 HA를 구축해 다운타임을 95.5% 단축(2분대 → 5초)했으며, 구축 중 발생한
   advertise-address 다중 파생 장애를 kubeadm 소스코드 분석으로 규명해 무중단 업그레이드 완수

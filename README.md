@@ -49,7 +49,7 @@
 - **[멀티 NIC 환경 Calico BGP 라우팅 결함 분석 및 명시적 인터페이스 격리](network/04-calico-multi-nic-bgp-node-ip-misdetection.md)** — CNI의 암묵적 인터페이스 선택 결함을 분석하고 명시적 CIDR 바인딩으로 라우팅 경로 정상화
 - **[커널–애플리케이션 IPv6 불일치에 따른 소켓 바인딩 장애 분석 및 IPv4 단일 스택 표준화](network/05-ipv6-disable-app-bind-failure.md)** — 커널 비활성화와 앱 설정 불일치로 인한 크래시 규명, 배포 스펙 IPv4 단일 스택 통일로 재발 차단
 - **[Loki 멀티라인 대용량 로그 유실(Drop) 구조적 원인 분석 및 Ingestion Throttling 최적화](monitoring/04-loki-log-drop-rate-limit-tuning.md)** — 멀티라인 스택 트레이스의 Ingestion 쿼터 초과 구조 규명 및 버퍼/Rate Limit 최적화로 유실 차단
-- **[K8s MariaDB TCP Probe로 인한 Aborted Connection 병목 해결 및 최소권한 보안 개선](k8s-ops/03-mariadb-healthcheck-probe-tcp-abort.md)** — 불완전 핸드셰이크를 exec probe로 전환해 소켓 병목을 해결하고, root 사용 관행을 최소권한 전용 계정으로 개선
+- **[K8s MariaDB TCP Probe로 인한 Aborted Connection 병목 해결 및 최소권한 보안 개선](db/02-mariadb-healthcheck-probe-tcp-abort.md)** — 불완전 핸드셰이크를 exec probe로 전환해 소켓 병목을 해결하고, root 사용 관행을 최소권한 전용 계정으로 개선
 - **[글로벌 Root CA 전환에 따른 PKI 인증 체인 결함 해결 (Cross-Signing 적용)](security/04-ssl-ca-root-transition-pki-error.md)** — 신·구 Root CA 간 교차 서명(Cross-Signing) 체인 구성으로 레거시 호환성 보장 및 TLS 통신 단절 방지
 
 ---
@@ -58,11 +58,11 @@
 
 | 도메인 | 주요 기술 스택 | 핵심 주제 및 트러블슈팅 사례 | 디렉터리 |
 | :--- | :--- | :--- | :---: |
-| **Kubernetes & OS** | Kubernetes, Linux, kubeadm | • cgroup v2 JVM OOM 근본원인 규명<br>• kube-apiserver HA 다중 파생 장애 규명 및 해결<br>• MariaDB Exec Probe 전환 및 NDM 메모리 누수 해결 | [`k8s-ops/`](k8s-ops/) |
+| **Kubernetes & OS** | Kubernetes, Linux, kubeadm | • cgroup v2 JVM OOM 근본원인 규명<br>• kube-apiserver HA 다중 파생 장애 규명 및 해결<br>• NDM 메모리 누수 해결 | [`k8s-ops/`](k8s-ops/) |
 | **Networking & Ingress** | Calico, Traefik, IPVS/iptables, ARP | • NAC ARP 충돌 원인 규명 및 MetalLB 전환<br>• 멀티 NIC BGP Node IP 오선택 구조 결함 해결<br>• kube-proxy IPVS Deprecated 대응 iptables 전환 | [`network/`](network/) |
 | **Security & Compliance** | CSAP, Kyverno, kube-bench, PKI | • CSAP 보안 취약점 전수 진단·조치 및 자동화<br>• 글로벌 Root CA 전환 Cross-Signing 대응 | [`security/`](security/) |
 | **IaC & CI/CD** | Ansible, ArgoCD, GitLab, Harbor, Helm | • 클러스터 구성 자동화 4-Tier 리팩토링으로 설치 시간 평균 20% 단축<br>• 부트스트랩 도구 전환(Kubespray → kubeadm)으로 업그레이드 시간 75.6% 단축<br>• ArgoCD-GitLab 연쇄 장애 근본원인 규명 및 해결 | [`iac/`](iac/)<br>[`cicd/`](cicd/) |
 | **Observability & DR** | Prometheus, Loki, Alloy, Velero | • Promtail → Alloy 에이전트 마이그레이션<br>• Loki Ingestion Rate Limit 튜닝 및 S3 전환<br>• Redis Replica 기반 Diskless 원격 백업 구현 | [`monitoring/`](monitoring/)<br>[`backup/`](backup/) |
 | **Cloud & Leadership** | NCP, Hybrid Cloud, PM, MariaDB Galera, firewalld | • 온프레미스 솔루션 클라우드 공통 아키텍처 설계<br>• 6개 이상 클러스터 규모 구축 프로젝트 전 주기 리딩<br>• 국가중요시설 그룹웨어 구축 단계적 이행 설계·완료 | [`cloud/`](cloud/)<br>[`project/`](project/) |
 | **Storage** | Rook-Ceph, CephFS, NFS-Ganesha, fio | • 상용 NAS → Rook-Ceph 공유볼륨 전환 PoC (진행 중) | [`storage/`](storage/) |
-| **Database** | MariaDB, MaxScale, Loki | • MaxScale 크래시 루프 근본원인 규명(AVX2 미지원 CPU) 및 패치 작성 가이드 배포 | [`db/`](db/) |
+| **Database** | MariaDB, MaxScale, Loki | • MaxScale 크래시 루프 근본원인 규명(AVX2 미지원 CPU)<br>• MariaDB Exec Probe 전환으로 Aborted connect 로그 제거 | [`db/`](db/) |

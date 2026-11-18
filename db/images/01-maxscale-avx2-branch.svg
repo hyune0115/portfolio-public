@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker>
+  </defs>
+  <rect width="1000" height="440" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#0f172a">MaxScale Multi-Statement 검사 경로 분기</text>
+
+  <rect x="30" y="170" width="170" height="80" rx="8" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <text x="115" y="204" text-anchor="middle" font-size="16" font-weight="bold" fill="#0c4a6e">DB Patch Agent</text>
+  <text x="115" y="228" text-anchor="middle" font-size="13" fill="#0c4a6e">트리거 DDL 전송</text>
+
+  <rect x="270" y="170" width="190" height="80" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="365" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">MaxScale 23.02</text>
+  <text x="365" y="224" text-anchor="middle" font-size="13" fill="#334155">multi-stmt 검사 / CPU 분기</text>
+
+  <line x1="200" y1="210" x2="268" y2="210" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- AVX2 path -->
+  <line x1="460" y1="190" x2="560" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <text x="470" y="132" font-size="13" fill="#334155">AVX2 지원 서버</text>
+  <rect x="565" y="75" width="200" height="70" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="665" y="104" text-anchor="middle" font-size="15" font-weight="bold" fill="#14532d">simd256 경로</text>
+  <text x="665" y="126" text-anchor="middle" font-size="13" fill="#14532d">END 토큰 미탐지</text>
+  <line x1="765" y1="110" x2="830" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="835" y="85" width="135" height="50" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="902" y="116" text-anchor="middle" font-size="15" font-weight="bold" fill="#14532d">정상 처리</text>
+
+  <!-- non AVX2 path -->
+  <line x1="460" y1="230" x2="560" y2="310" stroke="#b91c1c" stroke-width="2" marker-end="url(#r)"/>
+  <text x="440" y="300" font-size="13" fill="#b91c1c">AVX2 미지원 서버</text>
+  <rect x="565" y="275" width="200" height="70" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="665" y="304" text-anchor="middle" font-size="15" font-weight="bold" fill="#7f1d1d">generic 경로</text>
+  <text x="665" y="326" text-anchor="middle" font-size="13" fill="#7f1d1d">`;` 뒤 END 탐지 → 다음 `;` 탐색</text>
+  <line x1="765" y1="310" x2="830" y2="310" stroke="#b91c1c" stroke-width="2" marker-end="url(#r)"/>
+  <rect x="835" y="275" width="135" height="70" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="902" y="304" text-anchor="middle" font-size="15" font-weight="bold" fill="#7f1d1d">NULL 역참조</text>
+  <text x="902" y="326" text-anchor="middle" font-size="13" fill="#7f1d1d">SIGSEGV (139)</text>
+
+  <!-- loop -->
+  <path d="M902 345 L902 400 L115 400 L115 252" fill="none" stroke="#b91c1c" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#r)"/>
+  <text x="510" y="392" text-anchor="middle" font-size="13" fill="#b91c1c">컨테이너 재시작 → 동일 패치 재시도 (크래시 루프 3회)</text>
+</svg>

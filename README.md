@@ -22,7 +22,7 @@
   ([자세히](k8s-ops/01-redhat9-cgroupv2-jdk-oom.md))
 - **클러스터 프로비저닝 자동화 프레임워크 구축 (kubeadm 전환 & 4-Tier 계층화)** — Kubespray 기반
   레거시 툴을 kubeadm 툴로 전환하고 4-Tier 계층화 및 실행 상태 관리 로직을 도입하여, 작업 반복
-  실행 문제를 해결(멱등성 보장)하고 업그레이드 소요 시간을 75.6% 단축(18분 23초 → 4분 29초)
+  실행 문제를 해결(멱등성 보장)하고 설치 소요 시간 평균 20%, 업그레이드 소요 시간 75.6% 단축(18분 23초 → 4분 29초)
   ([전환 자세히](iac/02-kubespray-to-kubeadm-migration.md) ·
   [프레임워크 자세히](iac/01-k8s-install-automation-refactor.md))
 - **CSAP SaaS 보안 인증 획득 및 감사 증적 자동화** — kube-bench 141개 항목 전수 점검 후 57건 조치(즉시 30건 +
@@ -32,9 +32,9 @@
 - **그룹웨어 신규 구축 프로젝트 리딩 (대규모 멀티 클러스터 · 공공기관 단계적 이행)** — 6개 이상 엔터프라이즈
   클러스터 구축을 설치 계획부터 프로덕션 오픈까지 전 주기 단독 완수했고, 국가중요시설 공공기관 구축에서는
   공유 스토리지 미입고 제약 하에 nodeSelector 고정 + Galera 단독 기동 방식의 되돌릴 수 있는 단계적 이행을
-  직접 설계해 운영계 이행 및 내부망 전환까지 완료 *(진행 중)*
+  직접 설계해 운영계 이행·내부망 전환·분산 구성 복귀까지 완료
   ([대규모 구축 리딩 자세히](project/01-solution-installation-project-lead.md) ·
-  [공공기관 구축(진행 중) 자세히](project/02-public-institution-groupware-build.md))
+  [공공기관 구축 자세히](project/02-public-institution-groupware-build.md))
 
 ---
 
@@ -61,7 +61,8 @@
 | **Kubernetes & OS** | Kubernetes, Linux, kubeadm | • cgroup v2 JVM OOM 근본원인 규명<br>• kube-apiserver HA 다중 파생 장애 규명 및 해결<br>• MariaDB Exec Probe 전환 및 NDM 메모리 누수 해결 | [`k8s-ops/`](k8s-ops/) |
 | **Networking & Ingress** | Calico, Traefik, IPVS/iptables, ARP | • NAC ARP 충돌 원인 규명 및 MetalLB 전환<br>• 멀티 NIC BGP Node IP 오선택 구조 결함 해결<br>• kube-proxy IPVS Deprecated 대응 iptables 전환 | [`network/`](network/) |
 | **Security & Compliance** | CSAP, Kyverno, kube-bench, PKI | • CSAP 보안 취약점 전수 진단·조치 및 자동화<br>• 글로벌 Root CA 전환 Cross-Signing 대응 | [`security/`](security/) |
-| **IaC & CI/CD** | Ansible, ArgoCD, GitLab, Harbor, Helm | • 클러스터 구성 자동화 4-Tier 리팩토링<br>• 부트스트랩 도구 전환(Kubespray → kubeadm)으로 업그레이드 시간 75.6% 단축<br>• ArgoCD-GitLab 연쇄 장애 근본원인 규명 및 해결 | [`iac/`](iac/)<br>[`cicd/`](cicd/) |
+| **IaC & CI/CD** | Ansible, ArgoCD, GitLab, Harbor, Helm | • 클러스터 구성 자동화 4-Tier 리팩토링으로 설치 시간 평균 20% 단축<br>• 부트스트랩 도구 전환(Kubespray → kubeadm)으로 업그레이드 시간 75.6% 단축<br>• ArgoCD-GitLab 연쇄 장애 근본원인 규명 및 해결 | [`iac/`](iac/)<br>[`cicd/`](cicd/) |
 | **Observability & DR** | Prometheus, Loki, Alloy, Velero | • Promtail → Alloy 에이전트 마이그레이션<br>• Loki Ingestion Rate Limit 튜닝 및 S3 전환<br>• Redis Replica 기반 Diskless 원격 백업 구현 | [`monitoring/`](monitoring/)<br>[`backup/`](backup/) |
-| **Cloud & Leadership** | NCP, Hybrid Cloud, PM, MariaDB Galera, firewalld | • 온프레미스 솔루션 클라우드 공통 아키텍처 설계<br>• 6개 이상 클러스터 규모 구축 프로젝트 전 주기 리딩<br>• 국가중요시설 그룹웨어 구축 단계적 이행 설계 (진행 중) | [`cloud/`](cloud/)<br>[`project/`](project/) |
+| **Cloud & Leadership** | NCP, Hybrid Cloud, PM, MariaDB Galera, firewalld | • 온프레미스 솔루션 클라우드 공통 아키텍처 설계<br>• 6개 이상 클러스터 규모 구축 프로젝트 전 주기 리딩<br>• 국가중요시설 그룹웨어 구축 단계적 이행 설계·완료 | [`cloud/`](cloud/)<br>[`project/`](project/) |
 | **Storage** | Rook-Ceph, CephFS, NFS-Ganesha, fio | • 상용 NAS → Rook-Ceph 공유볼륨 전환 PoC (진행 중) | [`storage/`](storage/) |
+| **Database** | MariaDB, MaxScale, Loki | • MaxScale 크래시 루프 근본원인 규명(AVX2 미지원 CPU) 및 패치 작성 가이드 배포 | [`db/`](db/) |
